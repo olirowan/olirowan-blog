@@ -10,6 +10,8 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from logging.handlers import RotatingFileHandler
 
+import pymysql
+pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
 app.config.from_object(Config)

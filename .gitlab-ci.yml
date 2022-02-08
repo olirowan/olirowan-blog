@@ -1,0 +1,206 @@
+image:
+  name: gcr.io/kaniko-project/executor:debug
+  entrypoint: [""]
+
+variables:
+  
+  KANIKO_CACHE_ARGS: "--cache=true --cache-copy-layers=true --cache-ttl=24h"
+
+  VERSIONLABELMETHOD: "OnlyIfThisCommitHasVersion" # options: "OnlyIfThisCommitHasVersion","LastVersionTagInGit"
+
+  IMAGE_LABELS: >
+    --label org.opencontainers.image.vendor=$CI_SERVER_URL/$GITLAB_USER_LOGIN
+    --label org.opencontainers.image.authors=$CI_SERVER_URL/$GITLAB_USER_LOGIN
+    --label org.opencontainers.image.revision=$CI_COMMIT_SHA
+    --label org.opencontainers.image.source=$CI_PROJECT_URL
+    --label org.opencontainers.image.documentation=$CI_PROJECT_URL
+    --label org.opencontainers.image.licenses=$CI_PROJECT_URL
+    --label org.opencontainers.image.url=$CI_PROJECT_URL
+    --label vcs-url=$CI_PROJECT_URL
+    --label com.gitlab.ci.user=$CI_SERVER_URL/$GITLAB_USER_LOGIN
+    --label com.gitlab.ci.email=$GITLAB_USER_EMAIL
+    --label com.gitlab.ci.tagorbranch=$CI_COMMIT_REF_NAME
+    --label com.gitlab.ci.pipelineurl=$CI_PIPELINE_URL
+    --label com.gitlab.ci.commiturl=$CI_PROJECT_URL/commit/$CI_COMMIT_SHA
+    --label com.gitlab.ci.cijoburl=$CI_JOB_URL
+    --label com.gitlab.ci.mrurl=$CI_PROJECT_URL/-/merge_requests/$CI_MERGE_REQUEST_ID
+
+get-latest-git-version:
+
+  stage: .pre
+
+  image:
+    name: alpine/git
+    entrypoint: [""]
+
+  rules:
+    - if: '$VERSIONLABELMETHOD == "LastVersionTagInGit"'
+
+  script:
+    - |
+      echo "the google kaniko container does not have git and does not have a packge manager to install it"
+      git clone https://github.com/GoogleContainerTools/kaniko.git
+      cd kaniko
+      echo "$(git describe --abbrev=0 --tags)" > ../VERSIONTAG.txt
+      echo "VERSIONTAG.txt contains $(cat ../VERSIONTAG.txt)"
+  artifacts:
+    paths:
+      - VERSIONTAG.txt
+
+.build_with_kaniko:
+
+  stage: build
+
+  before_script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" > /kaniko/.docker/config.json
+    - |
+      echo "-----BEGIN CERTIFICATE-----
+      MIIE0zCCArugAwIBAgIJAPY/OzLMeVq2MA0GCSqGSIb3DQEBCwUAMAAwHhcNMTkw
+      NDE4MDIyNzM3WhcNMjkwNDE1MDIyNzM3WjAAMIICIjANBgkqhkiG9w0BAQEFAAOC
+      Ag8AMIICCgKCAgEA3xlUJs2b/aI2NLoy4OIQ+dn/yMb/O99iKDRyZKpH8rSOmS+o
+      F9unmSAzL65XA/v6nY0OLI/dASDjkqkBpIdTGzogR5f8UiB6osuEY7V71XZdzWLr
+      PjnJq6ZLAaoKmwG80W5+Wd6V8PygOx52mkr1w7IWKz+1ZLI5izbppon7XVGVRaAT
+      RvNZDiJ6CeJpcJ5H723lkf5RvJWatZLCYIYDbRfTiKsyQ/SlRcv5BVfHg/LJSH9Q
+      LGRhPMARldl9wyZCwZZDHxheI4a+26aa8MY3u9st/l0/Oo6VCTGpMiEhiGF2LVjp
+      UWq/+BP4SFEvJfq/DuinI139W/5aZZ7/HwRPlmYU6pXTRLyIg7jd+19fJwR7X37q
+      w0o8t06FhjmrCzaYCUjoReqDmHaNmZN/ddvG7jZWBu+jNh0YavsyQyCIVmv6yqSc
+      jPiD9uivxqTwjJidIBRfuUrz3aERQ7cQgf0qhqjIzflzHbFKhILocBWq7zyNl9hr
+      vUGT/WZcw0t/OtM72SPaplmTgVbbQRxf2VHzyptGIvtydlXK8thxOMpXo4e+Sl8d
+      1gdQcC4oisN9F29oNs8P5yFQP//xYuv8C607nCj1DzrId5avG/NVfKB/fbDKEFgN
+      2WhHInTzPLEcjF4fErcUAEuWW0buX/6FHCG3iTtrqyD92KTVDfN1J56rrcsCAwEA
+      AaNQME4wHQYDVR0OBBYEFFhNhTo4UAC2PUsf8jYaWj160vGEMB8GA1UdIwQYMBaA
+      FFhNhTo4UAC2PUsf8jYaWj160vGEMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEL
+      BQADggIBAMAsEtVlELMwdtcifHeOT0kOmf5wo9In/eFSgscCzBMDaRx2B3q36AoS
+      Il7XWAZpevaR7W7yeARKaAshBLhygUqLD0zWbKlSN9Hprd1wdpM0ffyPpN5dxOYA
+      er04y12GRnCbMYqi4cvztP4TinXqq2yHSYhLbO9qkI5gbWVxkRuIcMKvixddllNY
+      Q3obJaDDHmovM3+g/G+1YFgt4qES38XnJ7BrSshHnn5EIQh286xfJriyrK2hHbLJ
+      qz0YuF6G3DXPeWGgXvj0Hipc0f8UDZkKkk/eGEI6vEkytyvoepoZI2XbAf/ZMy5n
+      KwuhEn4hhkFMwWaSWp/h0QdMCaxk4BVSOqmNVaLSB7+FjsIj4CasFotYiyJ2gpRB
+      Nf8QaS4bz0Tn1eBbC8ksj+e3ZWeX2b5wVMjql9jTt2X1ICs8KKe3vEBkjqT2AUi2
+      52TtKzm73aWrz/GPy/Q2LCor3Fh9FGVSBOBBDXGy6MJpNHJnYVH9EENFGOh85ol1
+      2pADOBB5vAU/kLB5LHPj2kue/FMiHaNnrSYIGrMlBSX2jj9EYa1uuUH+pd4MBj1F
+      5uH8ORiaQ6ht2+WHklxic1Rj5yTYQwVlH70CBOn+qVEdo63yQwzAMJKFIwlGUQEX
+      jiljgc86q4cZtUTFrcwMidbk+8Q6+JbDVg7HV/+pnC+wnv197kwe
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      MIIDRTCCAi2gAwIBAgIRAO9Npj55mOzfT6MvceWOu5QwDQYJKoZIhvcNAQELBQAw
+      FDESMBAGA1UEAxMJaGFyYm9yLWNhMB4XDTIxMDgwNzE5MDkyMVoXDTIyMDgwNzE5
+      MDkyMVowJTEjMCEGA1UEAxMacmVnaXN0cnkuaG9tZS5vbGlyb3dhbi5jb20wggEi
+      MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCirDGaEg+eyk+QTluv09ldybNv
+      xYeFxAIkpHT8Zr5xke/QTUHbdZTOWRNAQk/X+WpHmekBnTdhbw2bJI5MP6XUhQEN
+      holvxhgU8ny5hciBfyBZayVCyE/U4l4Ne8ydeeuEHJ/UMsVL7+WdXkC8B4dSWwlg
+      SCQ1xidExU2hn4zqiyArTiMuMFWxlRe5rKyp4jB00csGL3UZ3y9c9J++9LA2a+Ui
+      pYngAvJVGzpTZ8Vh1NMHxlNwZVDKMeQxyOd4J6E95uFklEo/v69Edc0z+zOI6lDs
+      tDC8hNbdlzuq6iYJotTu0+97qlJwbONb8mjVXB8nCt1a3vWE8vvipZt6jBMXAgMB
+      AAGjgYAwfjAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+      AQUFBwMCMAwGA1UdEwEB/wQCMAAwPwYDVR0RBDgwNoIacmVnaXN0cnkuaG9tZS5v
+      bGlyb3dhbi5jb22CGG5vdGFyeS5ob21lLm9saXJvd2FuLmNvbTANBgkqhkiG9w0B
+      AQsFAAOCAQEAqp00wpTjFnL6N7zGgeqROz4KDikOa3ccnrY5HywB17VzdlvDZ6uS
+      jGR4M72HE8ImKB43YYC0CTEZJJYEBOjeSynay0iFXe79sLVbJfG48c3L8Oqp+RIy
+      XUhXPhvT9hxIW3gIJkKve+1cYK+jfknlIdJWVcAFTc8XxU76l5k9ZX5yAG729Xob
+      3daas49+JvWhewBwv2Ofb1lnTlMmn4rv2cyDvakxyGRRQ8lk94Vjml9X7zX79//J
+      9o+w/4dhfSSmXjrT/EjbyoKtyd+gBKgNGXnlo+s7l5pT4EuDMkJGcdzYaFeWTL02
+      zAFGMfnfNrVNEaQqrQX+ts9p3Ndjhe4Yvg==
+      -----END CERTIFICATE-----" >> /kaniko/ssl/certs/additional-ca-cert-bundle.crt
+
+  script:
+    - |
+      echo "Building and shipping image to $CI_REGISTRY_IMAGE"
+      #Build date for opencontainers
+      BUILDDATE="'$(date '+%FT%T%z' | sed -E -n 's/(\+[0-9]{2})([0-9]{2})$/\1:\2/p')'" #rfc 3339 date
+      IMAGE_LABELS="$IMAGE_LABELS --label org.opencontainers.image.created=$BUILDDATE --label build-date=$BUILDDATE"
+      #Description for opencontainers
+      BUILDTITLE=$(echo $CI_PROJECT_TITLE | tr " " "_")
+      IMAGE_LABELS="$IMAGE_LABELS --label org.opencontainers.image.title=$BUILDTITLE --label org.opencontainers.image.description=$BUILDTITLE"
+      #Add ref.name for opencontainers
+      IMAGE_LABELS="$IMAGE_LABELS --label org.opencontainers.image.ref.name=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME"
+
+      #Build Version Label and Tag from git tag, LastVersionTagInGit was placed by a previous job artifact
+      if [[ "$VERSIONLABELMETHOD" == "LastVersionTagInGit" ]]; then VERSIONLABEL=$(cat VERSIONTAG.txt); fi
+      if [[ "$VERSIONLABELMETHOD" == "OnlyIfThisCommitHasVersion" ]]; then VERSIONLABEL=$CI_COMMIT_TAG; fi
+      if [[ ! -z "$VERSIONLABEL" ]]; then
+        IMAGE_LABELS="$IMAGE_LABELS --label org.opencontainers.image.version=$VERSIONLABEL"
+        ADDITIONALTAGLIST="$ADDITIONALTAGLIST $VERSIONLABEL"
+      fi
+
+      ADDITIONALTAGLIST="$ADDITIONALTAGLIST $CI_COMMIT_REF_NAME $CI_COMMIT_SHORT_SHA"
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then ADDITIONALTAGLIST="$ADDITIONALTAGLIST latest"; fi
+      if [[ -n "$ADDITIONALTAGLIST" ]]; then
+        for TAG in $ADDITIONALTAGLIST; do
+          FORMATTEDTAGLIST="${FORMATTEDTAGLIST} --tag $CI_REGISTRY_IMAGE:$TAG ";
+        done;
+      fi
+
+      #Reformat Docker tags to kaniko's --destination argument:
+      FORMATTEDTAGLIST=$(echo "${FORMATTEDTAGLIST}" | sed s/\-\-tag/\-\-destination/g)
+
+      echo "Kaniko arguments to run: --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile $KANIKO_CACHE_ARGS $FORMATTEDTAGLIST $IMAGE_LABELS"
+      mkdir -p /kaniko/.docker
+      echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n $CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD | base64)\"}}}" > /kaniko/.docker/config.json
+      /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile $KANIKO_CACHE_ARGS $FORMATTEDTAGLIST $IMAGE_LABELS
+
+
+build-for-gitlab-project-registry:
+
+  extends: .build_with_kaniko
+
+  environment:
+    name: push-to-gitlab-project-registry
+
+
+build-for-docker-hub-registry_new:
+
+  extends: .build_with_kaniko
+
+  stage: build
+
+  environment:
+    name: push-to-docker-hub
+
+
+create-archive-for-minio:
+
+  image:
+    name: minio/mc
+    entrypoint: [""]
+
+  stage: deploy
+
+  before_script:
+    - mc alias set homelab-minio $MINIO_ENDPOINT $MINIO_ACCESS $MINIO_SECRET
+    - microdnf install tar gzip
+
+  script:
+    - touch olirowan-blog.tgz && tar --exclude=olirowan-blog.tgz --exclude-vcs -czvf olirowan-blog.tgz .
+    - echo `ls -lh *.tgz`
+    - mc cp olirowan-blog.tgz homelab-minio/olirowan-blog-dev/
+
+
+update-container-tag-dev:
+
+  image: alpine:3.8
+
+  stage: .post
+
+  before_script:
+    - apk add --no-cache git curl bash openssh
+    - eval `ssh-agent -s`
+    - echo "${SSH_KEY}" | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "Host *" > ~/.ssh/config
+    - echo "    StrictHostKeyChecking no" >> ~/.ssh/config
+    - git config --global user.email "$olirowan@olirowan.com"
+    - git config --global user.name "olirowan"
+
+  script:
+    - mkdir -p /tmp/ && cd /tmp/
+    - git clone ssh://git@192.168.1.121:8822/olirowan/homelab-iac.git
+    - cd homelab-iac/
+    - cp olirowan-blog/deployments/dev/olirowan-blog_deployment.yaml.tmpl olirowan-blog/deployments/dev/olirowan-blog_deployment.yaml
+    - sed -i "s/GIT_SHA_VALUE/$CI_COMMIT_SHORT_SHA/g" olirowan-blog/deployments/dev/olirowan-blog_deployment.yaml
+    - git add -A
+    - git commit -m "Updated container tag - $CI_COMMIT_SHORT_SHA"
+    - git push
+  
