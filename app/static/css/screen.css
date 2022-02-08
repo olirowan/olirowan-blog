@@ -1,0 +1,1279 @@
+/****************************** MAIN STYLES - backgorund,deviders ******************************/
+
+/* Main Container */
+img, embed, object, video {
+    max-width: 100%
+}
+
+/* Dividers */
+hr.separator {
+    height: 1px;
+    margin: 40px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    border: 0;
+}
+
+hr.separator1 {
+    height: 1px;
+    margin: 10px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    border: 0;
+}
+
+hr.separator-breakout {
+    height: 1px;
+    margin: 10px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    border: 0;
+    width: 100vw;
+    position: relative;
+    left: calc(-1 * (100vw - 100%) / 2);
+}
+
+hr.separator-breakout-blue {
+    color: #4e8de5;
+    height: 1px;
+    margin: 10px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    border: 0;
+    width: 100vw;
+    position: relative;
+    left: calc(-1 * (100vw - 100%) / 2);
+}
+
+hr.separator-breakout-white {
+    color: #ffffff;
+    height: 1px;
+    margin: 10px 0;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
+    border: 0;
+    width: 100vw;
+    position: relative;
+    left: calc(-1 * (100vw - 100%) / 2);
+}
+
+
+/****************************** HOME - Content Part - Logo&Menu ******************************/
+/* Header - Logo & Menu */
+
+.alert-info {
+    text-align: center;
+    background-color: #4e8de5;
+    color: #fbe6cb;
+    font-size: 16px;
+}
+
+.blogposts h2 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.nav-link li a {
+    padding-left: 5px;
+    padding-right: 0;
+    display: block;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fbe6cb;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #4e8de5;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #000;
+}
+
+.nav li a {
+    padding-top: 14px;
+    padding-right: 5px;
+    padding-left: 0;
+}
+
+.navbar-default {
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    border: 0;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+}
+
+.navbar-light {
+    margin-top: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    border: 0;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+    padding-right: 0.5rem;
+    margin-top: -15px;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    border-bottom: 1px solid #e8ded1;
+    color: #fbe6cb;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    font-family: 'arial', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+}
+
+.navbar > .container-fluid {
+    display: initial;
+}
+
+.navbar-expand > .container-fluid {
+    padding-right: 12px;
+}
+
+#header {
+    background: #4e8de5 url(../images/rausch.png) repeat;
+    margin-top: 0;
+    border-bottom: 2px solid #4e8de5;
+    border-top: 2px solid #4e8de5;
+    border-left: 2px solid #4e8de5;
+    border-right: 2px solid #4e8de5;
+    height: 90px;
+}
+
+.authorimage {
+
+    /* background: #4e8de5 url(../images/rausch.png) repeat; */
+    margin-top: 0;
+    border-bottom: 2px solid #4e8de5;
+    border-top: 2px solid #4e8de5;
+    border-left: 2px solid #4e8de5;
+    border-right: 2px solid #4e8de5;
+
+}
+
+.authorblock {
+
+    background: #4e8de5 url(../images/rausch.png) repeat;
+    margin-top: 0;
+    border-bottom: 2px solid #4e8de5;
+    border-top: 2px solid #4e8de5;
+    border-left: 2px solid #4e8de5;
+    border-right: 2px solid #4e8de5;
+
+}
+
+.logo {
+    float: left;
+    padding-top: 25px;
+}
+
+ul.sf-menu {
+    margin-top: 5px;
+}
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sf-menu {
+    line-height: 0;
+}
+
+.sf-menu ul {
+    position: absolute;
+    top: -999em;
+    width: 10em; /* left offset of submenus need to match (see below) */
+}
+
+.sf-menu ul li {
+    width: 100%;
+}
+
+.sf-menu li:hover {
+    visibility: inherit; /* fixes IE7 'sticky bug' */
+}
+
+.sf-menu li {
+    float: left;
+    position: relative;
+}
+
+.sf-menu a {
+    display: block;
+    position: relative;
+}
+
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {
+    left: 0;
+    top: 2.5em; /* match top ul list item height */
+    z-index: 99;
+}
+
+ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
+    top: -999em;
+}
+
+ul.sf-menu li li:hover ul, ul.sf-menu li li.sfHover ul {
+    left: 10em; /* match ul width */
+    top: 0;
+}
+
+ul.sf-menu li li:hover li ul, ul.sf-menu li li.sfHover li ul {
+    top: -999em;
+}
+
+ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
+    left: 10em; /* match ul width */
+    top: 0;
+}
+
+.sf-menu li a {
+    font-size: 16px;
+    padding: 50px 5px 10px 10px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.sf-menu li a:hover { /* visited pseudo selector so IE6 applies text colour*/
+    color: #fff;
+}
+
+
+.black-link-hover a {
+    text-decoration: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.black-link-hover a:hover {
+    color: #444;
+}
+
+li a#visited {
+    border-bottom: 1px solid #e8ded1;
+    color: #fff;
+}
+
+/*** submenu ***/
+.sf-menu li ul {
+    background: #261b0d url(../images/rausch.png) repeat;
+    border-top: 3px solid #e8ded1;
+    margin-top: 75px;
+}
+
+.sf-menu li ul li a {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px 0 15px 0;
+    text-decoration: none;
+    color: #e8ded1;
+    border: 0;
+    padding: 15px;
+    font-weight: normal;
+    font-size: 12px;
+    text-transform: lowercase;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.sf-menu li ul li a:hover {
+    padding-left: 18px;
+}
+
+/* Caption style */
+/* IE rgba() hack */
+.caption {
+    zoom: 1;
+    width: 20%;
+    padding: 2%;
+    margin: 0;
+    position: absolute;
+    left: 25%;
+    bottom: 20%;
+    text-align: center;
+    color: #2d2010;
+    background: rgba(234, 214, 189, 0.9);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.caption h2 {
+    color: #2d2010;
+    text-shadow: 1px 1px 0 #fff;
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 50px;
+}
+
+.caption p {
+    color: #533c1e;
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 30px;
+    text-shadow: none;
+}
+
+.caption a.button {
+    background: #fbe6cb url(../images/rausch.png) repeat;
+    border: 1px solid #da6767;
+    padding: 10px;
+    color: #ead6bd;
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.post-text {
+
+    color: #444;
+    line-height: 1.5em;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*Try and incorperate black via 211F24*/
+
+.blog-post-text h2 {
+
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.blog-post-text h3 {
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.blog-post-text p {
+
+    color: #444;
+    font-size: 17px;
+    line-height: 1.9em;
+    padding-bottom: 10px;
+    text-align: start;
+}
+
+.blog-post-text pre {
+
+    color: #444;
+    background-color: unset;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.caption a.button:hover {
+    background: #da6767 url(../images/rausch.png) repeat;
+    border: 1px solid #fbe6cb;
+}
+
+/* Direction Nav */
+
+.flex-direction-nav a {
+    width: 52px;
+    height: 52px;
+    margin: -15px 0 0;
+    display: block;
+    background: url(../images/flexslider/bg_direction_nav.png) no-repeat;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    text-indent: -999em;
+}
+
+/* Control Nav */
+
+.flex-control-nav li {
+    margin: 0 0 0 5px;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.flex-control-nav li:first-child {
+    margin: 0;
+}
+
+.flex-control-nav a {
+    width: 13px;
+    height: 13px;
+    display: block;
+    cursor: pointer;
+    text-indent: -999em;
+}
+
+.flex-control-nav a:hover {
+    background-position: 0 -13px;
+}
+
+/*************************************** SHADOW STYLES ****************************************/
+
+.shadow {
+    position: relative;
+    -moz-box-shadow: 0 14px 10px -10px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 14px 10px -10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 14px 10px -10px rgba(0, 0, 0, 0.4);
+}
+
+.shadow:before, .shadow:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 15px;
+    -moz-box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 15px 12px rgba(0, 0, 0, 0.6);
+}
+
+.shadow:before {
+    right: 10px;
+    -moz-transform: rotate(4deg) skewX(4deg);
+    -webkit-transform: rotate(4deg) skewX(4deg);
+    -o-transform: rotate(4deg) skewX(4deg);
+    -ms-transform: rotate(4deg) skewX(4deg);
+    transform: rotate(4deg) skewX(4deg);
+}
+
+/*************************************** SHADOW STYLES ****************************************/
+
+/****************************** Infobox & Heading & Socialize Boxes ******************************/
+
+.info {
+    text-align: center;
+    padding-top: 70px;
+}
+
+.user-menu {
+    padding-right: 3px;
+    margin: 0;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff3e4;
+}
+
+.mainmenu-collapsed {
+    margin-top: -20px;
+    margin-left: -5px;
+    background-color: transparent;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+    padding-left: 0;
+    padding-top: 5px;
+}
+
+.usermenu {
+    border-bottom: #ddd solid 1px;
+    height: 45px;
+}
+
+.user-menu li {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 0;
+    font-family: 'arial', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+}
+
+.container a {
+    color: #4e8de5;
+}
+
+/* ACCORDION -------------------------------------------------*/
+
+p.quote {
+    font-size: 12px;
+    font-style: italic;
+    color: #543d1f;
+}
+
+.latest h3 {
+    margin-bottom: 20px;
+}
+
+/****************************** Login ******************************/
+
+a.default-text a, a:visited {
+    color: #4e8de5;
+}
+
+.default-text p {
+    color: #2d2010;
+}
+
+.container.signin-container {
+    margin: auto;
+}
+
+.card.signin-card {
+    background: #4e8de5 url("../images/rausch.png") repeat;
+    padding: 40px 0px 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.card.signin-card h2 {
+    text-align: center;
+    color: #fbe6cb;
+    text-shadow: none;
+}
+
+.card.signin-card p {
+    text-align: center;
+    color: #fbe6cb;
+    text-shadow: none;
+}
+
+.card.signin-card a {
+    text-align: center;
+    color: #fbe6cb;
+    text-shadow: none;
+}
+
+.card.signin-card label {
+    color: #fbe6cb;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+}
+
+.card.signin-card > .row {
+    margin-left: 20%;
+}
+
+.btn-default {
+    color: #fbe6cb;
+    background: #4e8de5 url("../images/rausch.png") repeat;
+    border-color: #fbe6cb;
+    margin: auto;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-shadow: #0f0f0f;
+}
+
+a.btn-default {
+    color: #fbe6cb;
+    text-shadow: none;
+}
+
+label.form-check-label {
+
+    font-weight: normal;
+}
+
+/****************************** About ******************************/
+
+.img-thumbnail {
+    border-color: #4e8de5;
+    margin-bottom: 15px;
+}
+
+.about-me h2 {
+    margin-top: 5px;
+    text-align: left;
+}
+
+.about-me p {
+    line-height: 25px;
+    text-align: justify;
+}
+
+.about-me h3 {
+    margin-top: 25px;
+}
+
+/****************************** Footer ******************************/
+
+.pagefooter {
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 3px;
+    height: 70px;
+    background: #4E8DE5 url(../images/rausch.png) repeat;
+}
+
+.pagefooter p {
+    color: #f9efe3;
+    text-shadow: none;
+    font-size: 12px;
+}
+
+.pagefooter h3 {
+    color: #fbe6cb;
+    font-size: 16px;
+}
+
+.socials {
+    vertical-align: bottom;
+    text-align: center;
+    margin-right: 4px;
+    color: #fbe6cb;
+}
+
+.socials li ul {
+    padding-bottom: 5px;
+}
+
+.socials a {
+    color: #fff3e4;
+}
+
+.spaceme {
+    padding-bottom: 60px;
+}
+
+#tweets ul {
+    margin-top: 10px;
+}
+
+#tweets li {
+    line-height: 1.5em;
+    color: #efefef;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#tweets li a {
+    color: #f9efe3;
+}
+
+#tweets p.meta {
+    color: #fbe6cb;
+    margin-top: 10px;
+}
+
+#tweets li:last-child {
+    border-bottom: 0px none;
+}
+
+#tweets .hash {
+    color: #f9efe3;
+}
+
+#tweets .reply {
+    color: #f9efe3;
+}
+
+.footer ul li {
+    padding: 2px 0;
+}
+
+.footer ul li:last-child {
+    border-bottom: none;
+}
+
+ul.socials li {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 1px;
+    background: #4E8DE5 url(../images/rausch.png) repeat;
+    border: 1px solid rgba(0, 0, 0, 0.3) inset;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.3) inset;
+    -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.3) inset;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.3) inset;
+}
+
+.footer ul li a {
+    color: #f9efe3;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.footer ul li a:hover {
+    color: #fbe6cb;
+    padding-left: 5px;
+}
+
+/****************************** Copyright ******************************/
+#copyright {
+    background: #1b1309;
+    border-top: 1px solid #000;
+}
+
+p.copyright {
+    font-size: 11px;
+    color: #f9efe3;
+    text-align: center;
+    text-shadow: none;
+    padding-top: 10px;
+}
+
+p.copyright a {
+    color: #fbe6cb;
+}
+
+ul.socials {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 0;
+    margin-left: 4px;
+}
+
+ul.socials li {
+    display: inline-block;
+}
+
+/****************************** Breadcrumbs ******************************/
+
+.breadcrumbs h3, .breadcrumbs p {
+    text-align: center;
+}
+
+/****************************** ABOUT - Content Part ******************************/
+#about {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px 0 10px 0;
+    border-bottom: 1px solid #fff;
+}
+
+#about p.quote {
+    background: none;
+    border-top: 1px dotted #dcdcdc;
+    border-bottom: 1px dotted #dcdcdc;
+    padding: 5px 0 5px 0;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.aboutoneright img {
+    border-bottom: 5px solid rgba(255, 255, 255, 0.9);
+}
+
+.table {
+    margin-bottom: 10px;
+}
+
+/****************************** Portfolio ******************************/
+.view-first img {
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.view-first .mask {
+    width: 100%;
+    height: 100%;
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: rgba(240, 222, 200, 0.8) url(../images/bg/caption.png) repeat;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.view-first h2 {
+    -webkit-transform: translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -o-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    transform: translateY(-100px);
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.view-first p {
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -o-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.view-first:hover img {
+    -webkit-transform: scale(1.1, 1.1);
+    -moz-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.view-first a.info {
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.view-first:hover .mask {
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.view-first:hover h2, .view-first:hover p, .view-first:hover a.info {
+    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.view-first:hover p {
+    -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -o-transition-delay: 0.1s;
+    -ms-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.view-first:hover a.info {
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    -ms-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+    -moz-box-shadow: 1px 1px 2px #e6e6e6;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+    background: #fff;
+}
+
+.view .mask, .view .content {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.view img {
+    display: block;
+    position: relative;
+}
+
+.mask h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-size: 18px;
+    line-height: 50px;
+    background: #dbcab6 url(../images/bg/caption2.png) repeat;
+}
+
+.view h2 a {
+    color: #543d1f;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 720px) {
+    .ia-container figure {
+        left: 40px;
+        width: 260px;
+    }
+
+    .ia-container input {
+        width: 40px;
+    }
+
+    .ia-container input:checked ~ figure {
+        left: 260px;
+    }
+
+    .ia-container figcaption span {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .ia-container figure {
+        left: 20px;
+        width: 180px;
+    }
+
+    .ia-container input {
+        width: 20px;
+    }
+
+    .ia-container input:checked ~ figure {
+        left: 180px;
+    }
+
+    .ia-container figcaption span {
+        font-size: 12px;
+        letter-spacing: 2px;
+        padding: 10px;
+        margin-top: -20px;
+    }
+}
+
+.gallery h4 {
+    font-style: italic;
+    font-size: 13px;
+}
+
+/****************************** BLOG - Blog Page ******************************/
+.post {
+    margin-bottom: 40px;
+}
+
+.post a {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.post img {
+    margin-bottom: 15px;
+}
+
+.entry-date {
+    position: absolute;
+    left: -20px;
+    margin-top: -100px;
+    background: #f9efe3 url(../images/rausch.png) repeat;
+    width: 70px;
+    height: 70px;
+    color: #543d1f;
+    font-size: 14px;
+    line-height: 70px;
+    text-align: center;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/****************************** Blog - Sidebar ******************************/
+aside {
+    background: #f9efe3 url(../images/rausch.png) repeat;
+    padding: 0 20px 20px 20px;
+}
+
+
+/******************************* FEATURES / Resume  *******************************/
+
+.contact .first {
+    background: #f9efe3 url(../images/rausch.png) repeat;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+/****************************** Shortcodes ******************************/
+/* Content Shortcodes */
+
+/* #Page Styles
+================================================== */
+.content {
+    padding-top: 20px;
+}
+
+.content.right {
+    float: right;
+}
+
+/* #Media Queries
+================================================== */
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 1300px) {
+    .caption {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .caption {
+        display: none;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .caption {
+        display: none;
+    }
+
+    form#contact_form textarea {
+        width: 350px;
+    }
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+    .mainmenu select {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 40px;
+    }
+
+    .caption {
+        display: none;
+    }
+
+    .info h1 {
+        line-height: 40px;
+        font-size: 36px;
+    }
+
+    form#contact_form textarea {
+        width: 300px;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .mainmenu select {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 40px;
+    }
+
+    ul.tabs {
+        margin-top: 20px;
+    }
+
+    .caption {
+        display: none;
+    }
+
+    .info h1 {
+        line-height: 40px;
+        font-size: 36px;
+    }
+
+    form#contact_form textarea {
+        width: 300px;
+    }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    .mainmenu select {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 40px;
+        width: 40%;
+    }
+
+    .caption {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    ul.tabs {
+        margin-top: 20px;
+    }
+
+    ul.tabs li {
+        padding: 0 5px 0 0px;
+    }
+
+    .info h1 {
+        line-height: 40px;
+        font-size: 36px;
+    }
+
+    form#contact_form textarea {
+        width: 200px;
+    }
+
+    form#contact_form input[type="text"] {
+        width: 150px;
+    }
+
+    form#contact_form input#email {
+        width: 150px;
+    }
+}
+
+/* Responsive Menu
+================================================== */
+
+#responsive-menu {
+    display: none;
+    float: left;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .collapse {
+        display: none !important;
+    }
+
+    #responsive-menu {
+        display: inline-block;
+        width: 100%;
+        margin-top: 13px;
+    }
+
+    p.tagline {
+        color: #FFFFFF;
+        font-size: 27px;
+        margin-top: 40px;
+        text-align: left;
+        text-shadow: 3px 1px #444;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 993px) {
+    .col-md-4 {
+        max-width: 80%;
+    }
+
+    .col-md-5 {
+        max-width: 80%;
+    }
+
+    .col-md-6 {
+        max-width: 80%;
+    }
+
+    .col-md-8 {
+        max-width: 80%;
+    }
+
+    .col-md-8 {
+        max-width: 80%;
+    }
+
+    .col-md-12 {
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .card.signin-card {
+        max-width: 80%;
+    }
+}

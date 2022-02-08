@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% set active_page = "blog" %}
+
+{% block title %}Blog - olirowan{% endblock %}
+
+{% block app_content %}
+
+<div class="container post-text">
+
+    <div class="row justify-content-evenly">
+
+        <div class="col-md-12">
+
+            <h2 class="mt-4">Blog Posts</h2>
+
+            <span class="">Tagged as:</span>
+
+            <span><a class="mx-1" href="{{ url_for('blog_tags', tag_name=tagged_as) }} ">
+                    {{ tagged_as }}</a></span>
+
+            <span><a class="mx-1" href="{{ url_for('blog')}} ">(view all)</a></span>
+
+            <hr class="separator my-4">
+
+            <div class="row">
+
+                {% for entry in blogposts %}
+
+                <article class="media content-section">
+
+                    <div class="col-2 col-sm-1 blog-icon">
+                        <h2 class="fas {{ entry.icon }}"></h2>
+                    </div>
+
+                    <div class="col-10">
+                        <div class="media-body black-link-hover">
+
+                            <h3 class="mb-3"><a href="{{ url_for('readpost', slug=entry.slug) }}">
+                                    {{ entry.title }}
+                                </a></h3>
+
+                            <!-- <p>Posted {{ moment(entry.timestamp, local=true).fromNow() }}</p> -->
+                            <p>{{ entry.timestamp.strftime('%d %B %Y') }}</p>
+
+                            {% for tag in entry.tag %}
+                            <span><a class="mr-2" href="{{ url_for('blog_tags', tag_name=tag.blogpost_tag) }} ">
+                                    {{ tag.blogpost_tag }}</a></span>
+
+                            {% endfor %}
+                        </div>
+
+                        <hr class="separator my-4">
+                    </div>
+
+                </article>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}
+
+{% endblock %}

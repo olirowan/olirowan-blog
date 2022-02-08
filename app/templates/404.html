@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}404 - olirowan{% endblock %}
+
+{% block app_content %}
+
+    <div class="container post-text">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>404 - File Not Found</h2>
+                <p><a href="{{ url_for('home') }}">Back</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+
+{% endblock %}

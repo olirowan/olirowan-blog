@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% set active_page = "home" %}
+{% block title %}Home - olirowan{% endblock %}
+
+{% block app_content %}
+
+<div id="home-banner-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-6 about-me-title about-me">
+                <h2><br></h2>
+                <h2>Oli Rowan</h2>
+                <br>
+                <p class="tagline">
+                    A blog about building a blog - and some other stuff.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="home-white-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h2 class="blog-post-top-separator">Blog Posts</h2>
+                <hr class="separator my-4">
+                <div class="row">
+
+                    {% for entry in blogposts[:3] %}
+                    <article class="media content-section">
+                        <div class="col-2 col-sm-1 blog-icon">
+                            <h2 class="fas {{ entry.icon }}"></h2>
+                        </div>
+                        <div class="col-10">
+                            <div class="media-body black-link-hover">
+                                <h3><a href="{{ url_for('readpost', slug=entry.slug) }}">
+                                        {{ entry.title }}
+                                    </a>
+                                </h3>
+                                <p>Posted {{ moment(entry.timestamp, local=true).fromNow() }}</p>
+                                {% for tag in entry.tag %}
+                                <span class="span_tags"><a
+                                        href="{{ url_for('blog_tags', tag_name=tag.blogpost_tag) }} ">
+                                        {{ tag.blogpost_tag }}</a></span>
+                                {% endfor %}
+                            </div>
+                            <hr class="separator my-4">
+                        </div>
+                    </article>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <p class="black-link-hover mb-5">
+            You can find more posts like these on <a href="{{ url_for('blog') }}">/blog </a>
+        </p>
+    </div>
+    <hr class="separator-breakout-blue my-5">
+
+</div>
+
+<div id="about-text-container">
+
+    <div class="container">
+
+        <hr class="separator-breakout-white my-5">
+
+        <div class="row about-text-row about-text-yellow align-items-center">
+            <div class="col-md-4">
+
+                <h3>I wanted to build a blog more than I actually wanted to write a blog.</h3>
+                <hr class="separator my-3">
+
+                <p class="my-4">
+                    So what are you supposed to write about when you feel as though you nothing to write about?
+                </p>
+                <p class="my-4">
+                    Finally, an excuse to publish half-finished projects and document them as they go.
+                </p>
+            </div>
+
+            <div class="col-md-4 offset-2">
+                <img src="{{ url_for('static', filename='images/olirock.jpg') }}" alt="olirowan" title="olirowan"
+                    class="img-rounded">
+            </div>
+        </div>
+
+        <hr class="separator-breakout-white my-5">
+
+    </div>
+</div>
+
+<div id="home-white-container">
+    <div class="container black-link-hover">
+
+        <hr class="separator-breakout-blue my-5">
+
+        <h2 class="text-center">Shoutouts, Resources, Interests - </h2>
+
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="row resources-text-row justify-content-evenly">
+
+                    <hr class="separator mt-4">
+
+                    <div class="col-auto">
+                        <p>
+                            Images & Icons -
+                        </p>
+                        <ul>
+                            <li><a target="_blank" href="https://konpa.github.io/devicon/">Devicon</a></li>
+                            <li><a target="_blank" href="https://www.freepik.com/">Freepik</a></li>
+                            <li><a target="_blank" href="https://unsplash.com/">Unsplash</a></li>
+                            <li><a target="_blank" href="https://fontawesome.com/">Font Awesome</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-auto">
+                        <p>
+                            Learning Sources -
+                        </p>
+                        <ul>
+                            <li><a target="_blank" href="https://blog.miguelgrinberg.com/">Miguel Grinberg's Flask
+                                    Mega-Tutorial</a></li>
+                            <li><a target="_blank" href="https://charlesleifer.com/">Charles Leifer's Blog</a></li>
+                            <li><a target="_blank" href="https://prettyprinted.com/">Pretty Printed</a></li>
+                            <li><a target="_blank" href="https://coreyms.com/">Corey Schafer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-auto">
+                        <p>
+                            Additional Inspiration -
+                        </p>
+                        <ul>
+                            <li><a target="_blank" href="https://old.reddit.com/r/webdev/">/r/webdev</a></li>
+                            <li><a target="_blank" href="https://old.reddit.com/r/web_design/">/r/web_design</a></li>
+                        </ul>
+                    </div>
+
+                    <hr class="separator mt-4">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-evenly">
+            <div class="col-md-7 justify-content-centre">
+
+
+
+                <i class="dev-logo devicon-amazonwebservices-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-azure-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-bash-plain colored"></i>
+                <i class="dev-logo devicon-bootstrap-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-debian-plain colored"></i>
+                <i class="dev-logo devicon-django-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-docker-plain colored"></i>
+                <i class="dev-logo devicon-flask-original-wordmark colored"></i>
+                <i class="dev-logo devicon-gitlab-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-kubernetes-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-linux-plain colored"></i>
+                <i class="dev-logo devicon-mysql-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-nginx-original-wordmark colored"></i>
+                <i class="dev-logo devicon-python-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-raspberrypi-line colored"></i>
+
+
+            </div>
+        </div>
+
+        <hr class="separator my-5">
+
+    </div>
+</div>
+
+<h1><br></h1>
+
+{% endblock %}

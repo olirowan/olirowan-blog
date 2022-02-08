@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% set active_page = "admin" %}
+{% block title %}Edit Post - olirowan{% endblock %}
+
+{% block app_content %}
+
+    <div class="container default-text">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Edit Profile</h1>
+                <div class="row">
+                    <div class="col-md-8">
+                        {{ wtf.quick_form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}500 - olirowan{% endblock %}
+
+{% block app_content %}
+
+    <div class="container post-text">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>An unexpected error has occurred</h2>
+                <p>The administrator has been notified. Sorry for the inconvenience!</p>
+                <p><a href="{{ url_for('home') }}">Back</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+        {% include "footer.html" %}
+    {% endblock %}
+
+{% endblock %}

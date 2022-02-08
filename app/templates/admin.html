@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% set active_page = "admin" %}
+
+{% block title %}Admin - olirowan{% endblock %}
+
+{% block app_content %}
+
+<div class="container post-text">
+
+    <div class="row justify-content-evenly">
+
+        <div class="col-md-12">
+
+            <h2 class="mt-4">Admin</h2>
+
+            <hr class="separator my-4">
+
+            <div class="row">
+
+                <div class="col-4">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Create Post</h5>
+                            <p class="card-text">Create a blog or a snippet.
+                            </p>
+                            <a href="{{ url_for('createpost') }}" class="btn btn-outline-dark">/createpost</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Manage Tags</h5>
+                            <p class="card-text">Add or remove the tags associated with posts.
+                            </p>
+                            <a href="{{ url_for('managetags') }}" class="btn btn-outline-dark">/managetags</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Logout</h5>
+                            <p class="card-text">Back to a regular visitor.
+                            </p>
+                            <a href="{{ url_for('logout') }}" class="btn btn-outline-dark">/logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br class="my-2">
+
+<div class="container post-text">
+
+    <div class="row justify-content-evenly">
+
+        <div class="col-md-12">
+
+            <h2 class="mt-4">Profile - <a href="{{ url_for('admin') }}">/{{ user.username }}</a></h2>
+
+            <hr class="separator my-4">
+
+            <div class="row">
+
+                <div class="col-3">
+
+                    <div class="card">
+
+                        <div class="card-body">
+                            <img class="card-img-top img-thumbnail authorimage rounded-circle my-0 py-0 px-0"
+                            src="{{ url_for('static', filename='images/olirock.jpg') }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+
+                            <hr class="separator my-2">
+
+                            {% if user.last_seen %}
+                            <p>Last active: {{ moment(user.last_seen, local=true).fromNow() }}</p>
+                            {% endif %}
+    
+                            {% if user == current_user %}
+                            <p><a href="{{ url_for('editprofile') }}">Edit profile</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if form %}
+            {{ wtf.quick_form(form) }}
+            <br>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<br class="separator my-5">
+{% block footer %}
+{% include "footer.html" %}
+{% endblock %}
+
+{% endblock %}

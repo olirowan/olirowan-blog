@@ -1,0 +1,39 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.vscode/
+.vs/
+
+# Project specific
+logs/
+flask_session/
+uploads/*
+*.tgz
+
+# tests and coverage
+*.pytest_cache
+.coverage
+
+# database & logs
+*.db
+*.sqlite3
+*.log
+
+# venv
+env
+venv
+.env
+
+# other
+.DS_Store
+.idea/
+*pycache*
+
+# sphinx docs
+_build
+_static
+_templates
+
+# javascript
+package-lock.json
+.vscode/symbols.json
