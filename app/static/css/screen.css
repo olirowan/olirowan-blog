@@ -174,7 +174,7 @@ hr.separator-breakout-white {
     border-top: 2px solid #4e8de5;
     border-left: 2px solid #4e8de5;
     border-right: 2px solid #4e8de5;
-    height: 90px;
+    /* height: 90px; */
 }
 
 .authorimage {
@@ -530,6 +530,7 @@ li a#visited {
 .navbar-expand .navbar-nav .nav-link {
     padding-left: 0;
     padding-top: 5px;
+    padding-right: 1rem;
 }
 
 .usermenu {
@@ -1187,8 +1188,14 @@ aside {
         display: none;
     }
 
-    .logo {
+    /* .logo {
         display: none;
+    } */
+
+    #header {
+
+        padding-bottom: 1px;
+
     }
 
     ul.tabs {

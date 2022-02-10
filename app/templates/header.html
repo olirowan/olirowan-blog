@@ -4,31 +4,42 @@
 
     <div class="container">
 
-        <div class="logo"><a href="{{ url_for('home') }}">
-                <img class="header-logo" src="{{ url_for('static',filename='images/logo.svg') }}" alt="olirowanxyz"
-                    width="165px" height="65px" /></a>
-        </div>
+        <div class="row">
 
-        <nav class="nav navbar navbar-expand-sm navbar-light">
-            <div class="container-fluid">
-                <div class="mainmenu-collapsed">
-                    <ul class="nav navbar-nav navbar-right sf-menu">
-                        <li class="nav-item">
-                            <a class="{{ 'nav-link active' if active_page == 'home' else 'nav-link' }}"
-                                href="{{ url_for('home') }}">home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="{{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}"
-                                href="{{ url_for('blog') }}">blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="{{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}"
-                                href="{{ url_for('snippets') }}">snippets</a>
-                        </li>
-                    </ul>
+            <div class="col-md-6">
+
+                <div class="logo navbar-brand"><a href="{{ url_for('home') }}">
+                        <img class="header-logo" src="{{ url_for('static',filename='images/logo.svg') }}"
+                            alt="olirowanxyz" width="165px" height="65px" /></a>
                 </div>
+
             </div>
-        </nav>
+
+            <div class="col-md-6">
+
+                <nav class="nav navbar navbar-expand-sm navbar-light">
+                    <div class="container-fluid">
+                        <div class="mainmenu-collapsed">
+                            <ul class="nav navbar-nav navbar-right sf-menu float-right">
+                                <li class="nav-item">
+                                    <a class="{{ 'nav-link active' if active_page == 'home' else 'nav-link' }}"
+                                        href="{{ url_for('home') }}">home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="{{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}"
+                                        href="{{ url_for('blog') }}">blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="{{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}"
+                                        href="{{ url_for('snippets') }}">snippets</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
     </div>
 </div>
 

@@ -161,7 +161,7 @@ def blog():
 
     blog_join = BlogPost.query.join(BlogPostTags, BlogPost.tag).order_by(
         BlogPost.timestamp.desc()).filter(BlogPost.type == "blog")
-    tag_query = BlogPostTags.query.filter()
+    tag_query = BlogPostTags.query.filter().order_by(BlogPostTags.blogpost_tag)
 
     return render_template(
         'blog.html',
@@ -175,7 +175,7 @@ def snippets():
 
     blog_join = BlogPost.query.join(BlogPostTags, BlogPost.tag).order_by(
         BlogPost.timestamp.desc()).filter(BlogPost.type == "snippet")
-    tag_query = BlogPostTags.query.filter()
+    tag_query = BlogPostTags.query.filter().order_by(BlogPostTags.blogpost_tag)
 
     return render_template(
         'snippets.html',
@@ -231,9 +231,9 @@ def createpost():
             app.logger.warn(form.blog_tags.data)
             app.logger.warn(type(form.blog_tags.data))
 
-            if '4' not in form.blog_tags.data:
+            if '1' not in form.blog_tags.data:
 
-                form.blog_tags.data.append('4')
+                form.blog_tags.data.append('1')
 
             blog_entry = BlogPost(
                 title=form.blog_title.data,
@@ -265,9 +265,9 @@ def editpost(slug):
         form = CreateBlogPost.edit_values(blog_entry)
         if form.validate_on_submit():
 
-            if '4' not in form.blog_tags.data:
+            if '1' not in form.blog_tags.data:
 
-                form.blog_tags.data.append('4')
+                form.blog_tags.data.append('1')
 
             updated_slug = re.sub('[^\w]+', '-', form.blog_title.data.lower())
 
