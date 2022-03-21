@@ -206,10 +206,7 @@ def readpost(slug):
     query = BlogPost.public().filter_by(slug=slug).first_or_404()
 
     view_count_sql = 'SELECT COUNT(id) from vc_requests where path="/' + slug + '/"'
-
     view_count = db.engine.execute(view_count_sql).scalar()
-
-    app.logger.info(view_count)
 
     return render_template(
         'readpost.html',

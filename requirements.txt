@@ -13,7 +13,6 @@ Flask-Mail==0.9.1
 Flask-Migrate==3.1.0
 Flask-Moment==1.0.2
 Flask-SQLAlchemy==2.5.1
-flask-view-counter==0.1.2
 Flask-WTF==1.0.0
 greenlet==1.1.2
 idna==3.3
