@@ -59,12 +59,14 @@
                     <hr class="separator my-0 about-text-yellow">
                     <div class="card-body authorblock about-text-yellow">
 
-                        <small class="my-3">posted by: </small>
 
-                        <span>
-                            <h4 class="card-title">Oli Rowan</h4>
-                        </span>
-                        <p class="card-text">{{ blogpost.timestamp.strftime('%d %B %Y') }}</p>
+                        <h4 class="card-title my-3"><i class="fas fa-user-circle"></i> Oli Rowan</h4>
+
+                        <h4 class="card-text my-3"><i class="fas fa-calendar"></i>  {{ blogpost.timestamp.strftime('%d %B %Y') }}</h4>
+
+                        <h4 class="card-text my-3"><i class="fas fa-eye"></i> {{ view_count }}</h4>
+
+
                     </div>
                 </div>
 

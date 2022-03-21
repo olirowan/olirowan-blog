@@ -1,8 +1,8 @@
 import re
-from app import app, db
+from app import app, db, view_counter
 
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, session, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 
 from app.forms import RegistrationForm, LoginForm
@@ -11,6 +11,9 @@ from app.forms import ResetPasswordForm, ResetPasswordRequestForm
 from app.models import User, BlogPost, BlogPostTags
 from app.email import send_password_reset_email
 from app.utils import validate_if_admin_user
+
+from sqlalchemy.sql import select
+from sqlalchemy import func
 
 
 @app.before_request
@@ -153,9 +156,6 @@ def editprofile():
     return render_template('editprofile.html', form=form)
 
 
-
-
-
 @app.route('/blog')
 def blog():
 
@@ -190,8 +190,7 @@ def blog_tags(tag_name):
     blog_join = BlogPost.query.filter(
         BlogPostTags.blogpost_tag.contains(tag_name)
             ).join(BlogPostTags, BlogPost.tag
-        ).order_by(BlogPost.timestamp.desc()
-    ).all()
+        ).order_by(BlogPost.timestamp.desc()).all()
 
     return render_template(
         'blog_tag.html',
@@ -201,10 +200,22 @@ def blog_tags(tag_name):
 
 
 @app.route('/<slug>/')
+@view_counter.count
 def readpost(slug):
 
     query = BlogPost.public().filter_by(slug=slug).first_or_404()
-    return render_template('readpost.html', blogpost=query)
+
+    view_count_sql = 'SELECT COUNT(id) from vc_requests where path="/' + slug + '/"'
+
+    view_count = db.engine.execute(view_count_sql).scalar()
+
+    app.logger.info(view_count)
+
+    return render_template(
+        'readpost.html',
+        blogpost=query,
+        view_count=view_count
+    )
 
 
 @app.route('/admin/', methods=['GET', 'POST'])

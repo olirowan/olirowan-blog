@@ -8,6 +8,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from flask_view_counter import ViewCounter
 from logging.handlers import RotatingFileHandler
 
 import pymysql
@@ -26,6 +27,8 @@ mail = Mail(app)
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+
+view_counter = ViewCounter(app, db)
 
 
 log_path = os.path.join(app.config['WRITE_PATH'], 'logs')
