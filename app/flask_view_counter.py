@@ -32,11 +32,7 @@ class ViewCounter():
         requests = db.Table(
             ViewCounter.TABLENAME, meta,
             db.Column('id', db.Integer, primary_key=True),
-            db.Column('year', db.Integer, nullable=False),
-            db.Column('month', db.Integer, nullable=False),
-            db.Column('day', db.Integer, nullable=False),
-            db.Column('hour', db.Integer, nullable=False),
-            db.Column('minute', db.Integer, nullable=False),
+            db.Column('timestamp_utc', db.DateTime(timezone=True), default=datetime.utcnow, nullable=False),
             db.Column('ip', db.String(64), nullable=False),
             db.Column('user_agent', db.String(200), nullable=False),
             db.Column('path', db.String(250), nullable=False),
@@ -63,11 +59,6 @@ class ViewCounter():
 
     def add_view(self, dt, ip, user_agent, path, status, params):
         ins = self.requests.insert().values(
-            year=dt.year,
-            month=dt.month,
-            day=dt.day,
-            hour=dt.hour,
-            minute=dt.minute,
             ip=ip,
             user_agent=user_agent[:180],
             path=path,
