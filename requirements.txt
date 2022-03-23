@@ -25,6 +25,7 @@ Markdown==3.3.6
 MarkupSafe==2.1.1
 micawber==0.5.4
 packaging==21.3
+Pygments==2.11.2
 PyJWT==2.3.0
 PyMySQL==1.0.2
 pyparsing==3.0.7

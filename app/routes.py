@@ -2,7 +2,7 @@ import re
 from app import app, db, view_counter
 
 from datetime import datetime
-from flask import render_template, flash, redirect, session, url_for, request
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 
 from app.forms import RegistrationForm, LoginForm
@@ -11,9 +11,6 @@ from app.forms import ResetPasswordForm, ResetPasswordRequestForm
 from app.models import User, BlogPost, BlogPostTags
 from app.email import send_password_reset_email
 from app.utils import validate_if_admin_user
-
-from sqlalchemy.sql import select
-from sqlalchemy import func
 
 
 @app.before_request

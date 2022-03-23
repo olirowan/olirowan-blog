@@ -10,6 +10,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import app, db, login
 
 from markdown import markdown
+from markdown.extensions.tables import TableExtension
+from markdown.extensions.toc import TocExtension
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
 from micawber import bootstrap_basic, parse_html
@@ -173,11 +175,13 @@ class BlogPost(db.Model):
         )
 
         extras = ExtraExtension()
+        tables = TableExtension()
+        toc = TocExtension()
         pre_sanistised_markup = Markup(self.content)
 
         markdown_content = markdown(
             pre_sanistised_markup,
-            extensions=[hilite, extras]
+            extensions=[hilite, extras, tables, toc]
         )
 
         post_sanitised_markup = bleach.clean(
