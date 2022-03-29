@@ -63,7 +63,7 @@
 
         <div class="col-md-12">
 
-            <h2 class="mt-4">Profile - <a href="{{ url_for('admin') }}">/{{ user.username }}</a></h2>
+            <h2 class="black-link-hover mt-4">Profile - <a href="{{ url_for('admin') }}">/{{ user.username }}</a></h2>
 
             <hr class="separator my-4">
 
@@ -75,27 +75,40 @@
 
                         <div class="card-body">
                             <img class="card-img-top img-thumbnail authorimage rounded-circle my-0 py-0 px-0"
-                            src="{{ url_for('static', filename='images/olirock.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                                src="{{ url_for('static', filename='images/olirock.jpg') }}">
+
+                            {% if user.about_me %}<p class="my-4">{{ user.about_me }}</p>{% endif %}
 
                             <hr class="separator my-2">
 
                             {% if user.last_seen %}
                             <p>Last active: {{ moment(user.last_seen, local=true).fromNow() }}</p>
                             {% endif %}
-    
+
                             {% if user == current_user %}
-                            <p><a href="{{ url_for('editprofile') }}">Edit profile</a></p>
+                            <p class="black-link-hover"><a href="{{ url_for('editprofile') }}">Edit profile</a></p>
                             {% endif %}
+
                         </div>
                     </div>
                 </div>
+
+                <div class="col-9">
+                    <div class="card">
+                        <div class="card-body">
+                            {% for slug, count in overview_count %}
+
+                            <hr class="separator my-2">
+
+                            <p class="black-link-hover"><a target="_blank" href="{{ url_for('readpost', slug=slug) }}">{{ slug }}</a> - {{ count }}</p>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
             </div>
 
             {% if form %}

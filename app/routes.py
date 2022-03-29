@@ -217,7 +217,15 @@ def readpost(slug):
 def admin():
 
     if validate_if_admin_user(current_user):
-        return render_template('admin.html', user=current_user)
+
+        overview_count_sql = 'SELECT path, COUNT(*) from vc_requests where path is not null group by path'
+        overview_count = db.engine.execute(overview_count_sql)
+
+        return render_template(
+            'admin.html',
+            user=current_user,
+            overview_count=overview_count
+        )
 
     else:
         return redirect(url_for('home'))
