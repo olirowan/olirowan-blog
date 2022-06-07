@@ -218,13 +218,30 @@ def admin():
 
     if validate_if_admin_user(current_user):
 
-        overview_count_sql = 'SELECT path, COUNT(*) from vc_requests where path is not null group by path'
+        overview_count_sql = ("SELECT path, COUNT(*) \
+            from vc_requests \
+            where path is not null \
+            group by path \
+            order by COUNT(path) desc")
+
         overview_count = db.engine.execute(overview_count_sql)
+
+        viewcount_list = []
+        total_viewcount = 0
+
+        for path, count in overview_count:
+
+            total_viewcount += count
+
+            sublist = []
+            sublist.append((path,count))
+            viewcount_list.append(sublist)
 
         return render_template(
             'admin.html',
             user=current_user,
-            overview_count=overview_count
+            overview_count=viewcount_list,
+            total_viewcount=total_viewcount
         )
 
     else:

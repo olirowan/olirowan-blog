@@ -1,0 +1,56 @@
+kind: pipeline
+type: docker
+name: olirowan-blog
+
+steps:
+  - name: harbor-upload
+
+    image: plugins/docker
+    settings:
+      repo: registry.home.olirowan.com/library/olirowan/olirowan-blog
+      registry: http://registry.home.olirowan.com
+      insecure: true
+      dockerfile: Dockerfile
+      tags: ${DRONE_COMMIT_SHA:0:8}
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+  - name: minio-upload
+    image: minio/mc
+
+    commands:
+      - mc alias set homelab-minio http://minio.home.olirowan.com $MINIO_CLIENT $MINIO_SECRET
+      - microdnf install tar gzip
+      - touch olirowan-blog.tgz && tar --exclude=olirowan-blog.tgz --exclude-vcs -czvf olirowan-blog.tgz .
+      - echo `ls -lh *.tgz`
+      - mc cp olirowan-blog.tgz homelab-minio/olirowan-blog-dev/
+
+    environment:
+      MINIO_CLIENT:
+        from_secret: minio_client
+      DRONE_PASS:
+        MINIO_SECRET: minio_secret
+
+  - name: update-container-tag-dev
+    image: alpine:3.8
+
+    environment:
+      DRONE_USER:
+        from_secret: drone_user
+      DRONE_PASS:
+        from_secret: drone_pass
+
+    commands:
+      - apk add --no-cache git curl bash openssh
+      - git config --global user.email "drone@home.olirowan.com"
+      - git config --global user.name "drone"
+
+      - mkdir -p /tmp/ && cd /tmp/
+      - git clone http://gitea.home.olirowan.com/olirowan/homelab-iac.git
+      - cd homelab-iac/
+      - sed -i 's/olirowan-blog:........$/olirowan-blog:${DRONE_COMMIT_SHA:0:8}/g' olirowan-blog/deployments/dev/olirowan-blog_deployment.yaml
+      - git add .
+      - git commit -m 'drone - updated container tag - ${DRONE_COMMIT_SHA:0:8}'
+      - git push http://$DRONE_USER:$DRONE_PASS@gitea.home.olirowan.com/olirowan/homelab-iac.git --all

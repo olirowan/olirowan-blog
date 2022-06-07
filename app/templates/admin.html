@@ -96,12 +96,22 @@
                 <div class="col-9">
                     <div class="card">
                         <div class="card-body">
-                            {% for slug, count in overview_count %}
+
+                            <h4 class="my-3">Total Views: {{ total_viewcount }} </h4>
 
                             <hr class="separator my-2">
 
-                            <p class="black-link-hover"><a target="_blank" href="{{ url_for('readpost', slug=slug) }}">{{ slug }}</a> - {{ count }}</p>
+                            {% for entry in overview_count %}
 
+                            {% for slug, count in entry %}
+
+                            <p class="black-link-hover"><a target="_blank"
+                                    href="{{ url_for('readpost', slug=slug) }}">{{ slug }}</a> - {{ count }} views - (<a
+                                    target="_blank" href="{{ url_for('editpost', slug=slug) }}">/editpost</a>)</p>
+
+                            <hr class="separator my-2">
+
+                            {% endfor %}
                             {% endfor %}
                         </div>
                     </div>
@@ -115,6 +125,21 @@
             {{ wtf.quick_form(form) }}
             <br>
             {% endif %}
+        </div>
+    </div>
+</div>
+<br class="my-2">
+
+<div class="container post-text">
+
+    <div class="row justify-content-evenly">
+
+        <div class="col-md-12">
+
+            <!-- <h2 class="black-link-hover mt-4">Profile - <a href="{{ url_for('admin') }}">/{{ user.username }}</a></h2> -->
+
+            <hr class="separator my-4">
+
         </div>
     </div>
 </div>
