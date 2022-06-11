@@ -24,7 +24,7 @@ steps:
       - wget https://dl.min.io/client/mc/release/linux-amd64/mc
       - chmod 755 ./mc
       - ./mc alias set homelab-minio http://minio.home.olirowan.com $MINIO_CLIENT $MINIO_SECRET
-      - touch olirowan-blog.tgz && tar --exclude=olirowan-blog.tgz --exclude-vcs -czvf olirowan-blog.tgz .
+      - touch olirowan-blog.tgz && tar --exclude=olirowan-blog.tgz --exclude=.git -czvf olirowan-blog.tgz .
       - mc cp olirowan-blog.tgz homelab-minio/olirowan-blog-dev/
 
     environment:
