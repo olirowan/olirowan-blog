@@ -30,8 +30,8 @@ steps:
     environment:
       MINIO_CLIENT:
         from_secret: minio_client
-      DRONE_PASS:
-        MINIO_SECRET: minio_secret
+      MINIO_SECRET:
+        from_secret: minio_secret
 
   - name: update-container-tag-dev
     image: alpine:3.8
