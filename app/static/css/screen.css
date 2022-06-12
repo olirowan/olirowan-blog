@@ -398,7 +398,7 @@ li a#visited {
 .blog-post-text h2 {
 
     margin-bottom: 25px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .blog-post-text h3 {

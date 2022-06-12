@@ -24,6 +24,11 @@ body {
 ol, ul {
     list-style: disc;
     padding-left: 15px;
+    color: #444;
+    font-size: 17px;
+    line-height: 1.9em;
+    padding-bottom: 10px;
+    text-align: start;
 }
 
 blockquote, q {
