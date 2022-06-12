@@ -17,26 +17,24 @@
 
             <div class="col-md-6">
 
-                <nav class="nav navbar navbar-expand-sm navbar-light">
-                    <div class="container-fluid">
-                        <div class="mainmenu-collapsed">
-                            <ul class="nav navbar-nav navbar-right sf-menu float-right">
-                                <li class="nav-item">
-                                    <a class="{{ 'nav-link active' if active_page == 'home' else 'nav-link' }}"
-                                        href="{{ url_for('home') }}">home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}"
-                                        href="{{ url_for('blog') }}">blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="{{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}"
-                                        href="{{ url_for('snippets') }}">snippets</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <div class="container-fluid">
+                    <ul
+                        class="nav navbar-nav navbar-expand sf-menu justify-content-end navigation-link black-link-hover">
+
+                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'home' else 'nav-link' }}">
+                            <a href="{{ url_for('home') }}">home</a>
+                        </li>
+
+                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}">
+                            <a href="{{ url_for('blog') }}">blog</a>
+                        </li>
+
+                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}">
+                            <a href="{{ url_for('snippets') }}">snippets</a>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
 
         </div>

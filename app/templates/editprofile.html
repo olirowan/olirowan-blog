@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'bootstrap/form.html' as wtf %}
 {% set active_page = "admin" %}
 {% block title %}Edit Post - olirowan{% endblock %}
 
@@ -12,7 +12,7 @@
                 <h1>Edit Profile</h1>
                 <div class="row">
                     <div class="col-md-8">
-                        {{ wtf.quick_form(form) }}
+                        {{ wtf.render_form(form) }}
                     </div>
                 </div>
             </div>

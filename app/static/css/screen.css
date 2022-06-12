@@ -269,8 +269,8 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 
 .sf-menu li a {
     font-size: 16px;
-    padding: 50px 5px 10px 10px;
-    text-decoration: none;
+    padding: 60px 5px 10px 10px;
+    /* text-decoration: none; */
     text-transform: lowercase;
     color: #fbe6cb;
     -webkit-transition: all 0.5s ease;
@@ -280,10 +280,29 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     transition: all 0.5s ease-in-out;
 }
 
-.sf-menu li a:hover { /* visited pseudo selector so IE6 applies text colour*/
-    color: #fff;
+/* .sf-menu li a:hover { 
+    color: rgb(0, 0, 0);
+} */
+
+
+.navigation-link {
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    border: 0;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #fbe6cb;
+    padding-right: 0.5rem;
+    margin-top: -15px;
 }
 
+.active {
+    text-underline-offset: .5rem;
+    text-decoration-line: underline;
+    text-decoration-color: #e8ded1;
+}
 
 .black-link-hover a {
     text-decoration: none;

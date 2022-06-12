@@ -6,7 +6,7 @@ from flask_mail import Mail
 from flask_moment import Moment
 from flask_migrate import Migrate
 from flask_login import LoginManager
-from flask_bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from .flask_view_counter import ViewCounter
 from logging.handlers import RotatingFileHandler
@@ -25,7 +25,7 @@ login.login_view = 'login'
 
 mail = Mail(app)
 
-bootstrap = Bootstrap(app)
+bootstrap = Bootstrap5(app)
 moment = Moment(app)
 
 view_counter = ViewCounter(app, db)

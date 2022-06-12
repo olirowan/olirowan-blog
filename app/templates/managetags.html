@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'bootstrap/form.html' as wtf %}
 {% set active_page = "admin" %}
 
 {% block title %}Admin Tags - olirowan{% endblock %}
@@ -24,7 +24,7 @@
 
                         <div class="card-body">
                             {% if form %}
-                            {{ wtf.quick_form(form) }}
+                            {{ wtf.render_form(form) }}
                             {% endif %}
                         </div>
                     </div>

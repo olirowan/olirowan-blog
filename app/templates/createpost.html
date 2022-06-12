@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'bootstrap/form.html' as wtf %}
 {% set active_page = "admin" %}
 
 {% block title %}Create Post - olirowan{% endblock %}
@@ -22,7 +22,7 @@
 
                 <!-- <div class="form-group"> -->
 
-                {{ wtf.form_field(form.blog_title, rows="1", class='form-control',
+                {{ wtf.render_field(form.blog_title, rows="1", class='form-control',
                 placeholder='Post Title') }}
 
                 <!-- </div> -->
@@ -37,7 +37,7 @@
                 <!-- <div class="card">
                         <div class="card-body"> -->
 
-                {{ wtf.form_field(form.blog_icon, class='form-control',
+                {{ wtf.render_field(form.blog_icon, class='form-control',
                 placeholder='Post Icon') }}
 
                 <!-- </div>
@@ -48,7 +48,7 @@
                 <!-- <div class="card">
                         <div class="card-body"> -->
 
-                {{ wtf.form_field(form.blog_tags, class='form-control overflow-auto') }}
+                {{ wtf.render_field(form.blog_tags, class='form-control overflow-auto') }}
 
                 <!-- </div>
                     </div> -->
@@ -60,7 +60,7 @@
 
                 <p>Post Type:</p>
 
-                {{ wtf.form_field(form.blog_type, class='form-control') }}
+                {{ wtf.render_field(form.blog_type, class='form-control') }}
 
                 <!-- </div>
                     </div> -->
@@ -72,7 +72,7 @@
 
             <div class="col-md-12">
 
-                {{ wtf.form_field(form.blog_content, rows="25", class='form-control overflow-auto',
+                {{ wtf.render_field(form.blog_content, rows="25", class='form-control overflow-auto',
                 placeholder='Post Content') }}
 
             </div>
