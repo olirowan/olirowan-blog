@@ -7,6 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <meta name="theme-color" content="#4e8de5">
+
+    <meta name="description"
+        content="A blog about building a blog, creating a homelab - and a few other scripts and projects.">
+
+    <meta name="keywords" content="blog, python, flask, homelab, olirowan, linux, kubernetes, devops, automation, software, scripting, raspberry pi, app, web apps">
+
     {% block styles %}
     <!-- Bootstrap CSS -->
     {{ bootstrap.load_css() }}
@@ -21,11 +28,6 @@
     {% block navbar %}
 
     {% include "header.html" %}
-
-    <meta name="theme-color" content="#4e8de5" />
-
-    <meta name="description"
-        content="A blog about building a blog, creating a homelab - and other scripts and projects.">
 
     <link rel="shortcut icon" href="{{ url_for('static',filename='images/favicon.ico') }}">
 
