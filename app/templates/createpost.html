@@ -8,117 +8,127 @@
 
 <div class="container post-text">
 
+    <h2 class="mt-4"><a href="{{ url_for('admin') }}">Admin</a> - Create Post</h2>
+
+    <hr class="separator my-4">
+
     <form class="form" method="post" action="" role="form">
+
         {{ form.hidden_tag() }}
-        <div class="row justify-content-evenly">
+
+        <div class="row justify-content-evenly my-2">
 
             <div class="col-md-12">
 
-                <h2 class="mt-4"><a href="{{ url_for('admin') }}">Admin</a> - Create Post</h2>
+                <!-- <div class="form-group"> -->
 
-                <hr class="separator my-4">
+                {{ wtf.form_field(form.blog_title, rows="1", class='form-control',
+                placeholder='Post Title') }}
 
-                <div class="form-group">
-
-                    {{ wtf.form_field(form.blog_title, class='form-control', 
-                    placeholder='Post Title') }}
-
-                </div>
+                <!-- </div> -->
 
             </div>
-
-            <div class="row justify-content-evenly">
-                <div class="col-4">
-                    <!-- <div class="card">
-                        <div class="card-body"> -->
-
-                            {{ wtf.form_field(form.blog_icon, class='form-control', 
-                            placeholder='Post Icon') }}
-
-                        <!-- </div>
-                    </div> -->
-                </div>
-
-                <div class="col-4">
-                    <!-- <div class="card">
-                        <div class="card-body"> -->
-
-                            {{ wtf.form_field(form.blog_tags, class='form-control') }}
-
-                        <!-- </div>
-                    </div> -->
-                </div>
-
-                <div class="col-4">
-                    <!-- <div class="card">
-                        <div class="card-body"> -->
-
-                            <p>Post Type:</p>
-
-                            {{ wtf.form_field(form.blog_type, class='form-control') }}
-
-                        <!-- </div>
-                    </div> -->
-                </div>
-
-            </div>
-
-            <div class="row justify-content-evenly">
-
-                <div class="col-md-12">
-
-                    {{ wtf.form_field(form.blog_content, class='form-control overflow-auto', 
-                    placeholder='Post Content') }}
-
-                </div>
-
-                <div class="col-md-4">
-
-                    {{ form.submit(class="w-100 btn btn-primary") }}
-
-
-                </div>
-
-            </div>
-
-            {% if form.blog_title.errors %}
-            <ul class="errors">
-                {% for error in form.blog_title.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if form.blog_icon.errors %}
-            <ul class="errors">
-                {% for error in form.blog_icon.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if form.blog_type.errors %}
-            <ul class="errors">
-                {% for error in form.blog_type.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if form.blog_tags.errors %}
-            <ul class="errors">
-                {% for error in form.blog_tags.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% if form.blog_content.errors %}
-            <ul class="errors">
-                {% for error in form.blog_content.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
 
         </div>
-    </form>
+
+        <div class="row justify-content-evenly my-2">
+
+            <div class="col-4">
+                <!-- <div class="card">
+                        <div class="card-body"> -->
+
+                {{ wtf.form_field(form.blog_icon, class='form-control',
+                placeholder='Post Icon') }}
+
+                <!-- </div>
+                    </div> -->
+            </div>
+
+            <div class="col-4">
+                <!-- <div class="card">
+                        <div class="card-body"> -->
+
+                {{ wtf.form_field(form.blog_tags, class='form-control overflow-auto') }}
+
+                <!-- </div>
+                    </div> -->
+            </div>
+
+            <div class="col-4">
+                <!-- <div class="card">
+                        <div class="card-body"> -->
+
+                <p>Post Type:</p>
+
+                {{ wtf.form_field(form.blog_type, class='form-control') }}
+
+                <!-- </div>
+                    </div> -->
+            </div>
+
+        </div>
+
+        <div class="row justify-content-evenly my-2">
+
+            <div class="col-md-12">
+
+                {{ wtf.form_field(form.blog_content, rows="25", class='form-control overflow-auto',
+                placeholder='Post Content') }}
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-evenly my-2">
+
+            <div class="col-md-4">
+
+                {{ form.submit(class="w-100 btn btn-primary") }}
+
+            </div>
+
+        </div>
+
+        <br class="my-5">
+
+        {% if form.blog_title.errors %}
+        <ul class="errors">
+            {% for error in form.blog_title.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if form.blog_icon.errors %}
+        <ul class="errors">
+            {% for error in form.blog_icon.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if form.blog_type.errors %}
+        <ul class="errors">
+            {% for error in form.blog_type.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if form.blog_tags.errors %}
+        <ul class="errors">
+            {% for error in form.blog_tags.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if form.blog_content.errors %}
+        <ul class="errors">
+            {% for error in form.blog_content.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+</div>
+</form>
 </div>
 
 {% block footer %}
