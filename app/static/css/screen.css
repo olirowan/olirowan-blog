@@ -106,7 +106,7 @@ hr.separator-breakout-white {
 }
 
 .nav li a {
-    padding-top: 14px;
+    padding-top: 15px;
     padding-right: 5px;
     padding-left: 0;
 }
@@ -204,19 +204,11 @@ hr.separator-breakout-white {
     padding-top: 25px;
 }
 
-ul.sf-menu {
-    margin-top: 5px;
-}
-
 /*** ESSENTIAL STYLES ***/
 .sf-menu, .sf-menu * {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.sf-menu {
-    line-height: 0;
 }
 
 .sf-menu ul {
@@ -269,7 +261,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 
 .sf-menu li a {
     font-size: 16px;
-    padding: 60px 5px 10px 10px;
+    /* padding: 60px 5px 10px 10px; */
     /* text-decoration: none; */
     text-transform: lowercase;
     color: #fbe6cb;
@@ -294,7 +286,6 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
     text-decoration: none;
     text-transform: lowercase;
     color: #fbe6cb;
-    padding-right: 0.5rem;
     margin-top: -15px;
 }
 

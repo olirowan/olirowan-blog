@@ -6,35 +6,34 @@
 
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex justify-content-end justify-content-md-start">
 
-                <div class="logo navbar-brand"><a href="{{ url_for('home') }}">
-                        <img class="header-logo" src="{{ url_for('static',filename='images/logo.svg') }}"
+                <div class="logo navbar-brand mx-4 my-auto"><a href="{{ url_for('home') }}">
+                        <img class="mx-2 header-logo" src="{{ url_for('static',filename='images/logo.svg') }}"
                             alt="olirowanxyz" width="165px" height="65px" /></a>
                 </div>
 
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex justify-content-end">
 
-                <div class="container-fluid">
-                    <ul
-                        class="nav navbar-nav navbar-expand sf-menu justify-content-end navigation-link black-link-hover">
+                <ul
+                    class="nav navbar-nav sf-menu justify-content-end navigation-link black-link-hover mx-4 my-auto mb-3">
 
-                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'home' else 'nav-link' }}">
-                            <a href="{{ url_for('home') }}">home</a>
-                        </li>
+                    <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'home' else 'nav-link' }}">
+                        <a href="{{ url_for('home') }}">home</a>
+                    </li>
 
-                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}">
-                            <a href="{{ url_for('blog') }}">blog</a>
-                        </li>
+                    <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'blog' else 'nav-link' }}">
+                        <a href="{{ url_for('blog') }}">blog</a>
+                    </li>
 
-                        <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}">
-                            <a href="{{ url_for('snippets') }}">snippets</a>
-                        </li>
+                    <li class="nav-item mx-2 {{ 'nav-link active' if active_page == 'snippets' else 'nav-link' }}">
+                        <a href="{{ url_for('snippets') }}">snippets</a>
+                    </li>
 
-                    </ul>
-                </div>
+                </ul>
+
             </div>
 
         </div>

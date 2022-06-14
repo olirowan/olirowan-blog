@@ -26,11 +26,11 @@
 
                 {% for entry in blogposts %}
 
-                <div class="col-1 blog-icon">
+                <div class="col-2 col-md-1 blog-icon">
                     <h2 class="fas {{ entry.icon }} my-3"></h2>
                 </div>
 
-                <div class="col-11">
+                <div class="col-10 col-md-11">
                     <div class="media-body black-link-hover">
                         <h3><a href="{{ url_for('readpost', slug=entry.slug) }}">
                                 {{ entry.title }}

@@ -12,7 +12,8 @@
     <meta name="description"
         content="A blog about building a blog, creating a homelab - and a few other scripts and projects.">
 
-    <meta name="keywords" content="blog, python, flask, homelab, olirowan, linux, kubernetes, devops, automation, software, scripting, raspberry pi, app, web apps">
+    <meta name="keywords"
+        content="blog, python, flask, homelab, olirowan, linux, kubernetes, devops, automation, software, scripting, raspberry pi, app, web apps">
 
     {% block styles %}
     <!-- Bootstrap CSS -->
@@ -49,18 +50,16 @@
 
     <div class="container usermenu">
         <div class="row">
-            <div class="col-md-12">
-                <div class="container-fluid">
-                    <ul class="user-menu nav navbar-nav navbar-expand black-link-hover justify-content-end">
-                        {% if not current_user.is_anonymous %}
-                        {% if current_user.username == "olirowanxyz" %}
-                        <li class="pt-2">
-                            <a class="mx-2" href="{{ url_for('admin') }}">admin</a>
-                        </li>
-                        {% endif %}
-                        {% endif %}
-                    </ul>
-                </div>
+            <div class="col-12 d-flex justify-content-end">
+                <ul class="user-menu nav navbar-nav navbar-expand black-link-hover justify-content-end mx-4">
+                    {% if not current_user.is_anonymous %}
+                    {% if current_user.username == "olirowanxyz" %}
+                    <li class="pt-2">
+                        <a class="mx-2" href="{{ url_for('admin') }}">admin</a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </div>
