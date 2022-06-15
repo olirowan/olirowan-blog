@@ -26,6 +26,12 @@
 
 <body>
 
+    <!-- preloader start -->
+    <div class="preloader">
+        <img src="/static/images/preloader.gif" alt="preloader">
+    </div>
+    <!-- preloader end -->
+
     {% block navbar %}
 
     {% include "header.html" %}
@@ -94,6 +100,9 @@
     <!-- Optional JavaScript -->
     {{ bootstrap.load_js() }}
     {{ moment.include_moment() }}
+    <!-- Project Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/js/project.js"></script>
     {% endblock %}
 
 </body>
