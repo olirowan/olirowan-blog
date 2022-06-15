@@ -100,7 +100,8 @@ h1 {
 h2 {
     font-size: 30px;
     margin-bottom: 10px;
-    font-family: 'Lato', 'Helvetica Neue', 'sans-serif'
+    font-family: 'Lato', 'Helvetica Neue', 'sans-serif';
+    font-display: swap;
 }
 
 .about-text-yellow * {
