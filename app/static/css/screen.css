@@ -157,6 +157,7 @@ hr.separator-breakout-white {
     text-decoration: none;
     text-transform: lowercase;
     color: #fbe6cb;
+    font-display: swap;
 }
 
 .navbar > .container-fluid {
@@ -335,6 +336,7 @@ li a#visited {
     -o-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    font-display: swap;
 }
 
 .sf-menu li ul li a:hover {
@@ -400,7 +402,7 @@ li a#visited {
     line-height: 1.5em;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-
+    font-display: swap;
 }
 
 /*Try and incorperate black via 211F24*/
@@ -558,6 +560,7 @@ li a#visited {
     text-decoration: none;
     text-transform: lowercase;
     color: #fbe6cb;
+    font-display: swap;
 }
 
 .container a {
@@ -626,6 +629,7 @@ a.default-text a, a:visited {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
+    font-display: swap;
 }
 
 .card.signin-card > .row {
@@ -744,6 +748,7 @@ label.form-check-label {
     line-height: 1.5em;
     color: #efefef;
     font-family: Arial, Helvetica, sans-serif;
+    font-display: swap;
 }
 
 #tweets li a {
