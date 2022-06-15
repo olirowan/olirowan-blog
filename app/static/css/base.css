@@ -439,7 +439,7 @@ select {
     height: 86vh;
     width: 100%;
     background-size: cover;
-    background-image: url(../images/landscape.jpg);
+    background-image: url(../images/landscape.webp);
     background-repeat: no-repeat;
 
 }
