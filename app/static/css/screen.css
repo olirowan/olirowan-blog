@@ -561,7 +561,8 @@ li a#visited {
 }
 
 .container a {
-    color: #4e8de5;
+    /* color: #4e8de5; */
+    color: #0045E6;
 }
 
 /* ACCORDION -------------------------------------------------*/
@@ -579,7 +580,8 @@ p.quote {
 /****************************** Login ******************************/
 
 a.default-text a, a:visited {
-    color: #4e8de5;
+    /* color: #4e8de5; */
+    color: #0045E6;
 }
 
 .default-text p {
@@ -1294,3 +1296,4 @@ aside {
         max-width: 80%;
     }
 }
+

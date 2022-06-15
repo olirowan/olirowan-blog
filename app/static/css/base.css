@@ -264,7 +264,8 @@ hr {
 /* #Links
 ================================================== */
 a, a:visited {
-    color: #4e8de5;
+    /* color: #4e8de5; */
+    color: #0045E6;
     text-decoration: none;
     outline: 0;
 }
@@ -442,3 +443,4 @@ select {
     background-repeat: no-repeat;
 
 }
+
