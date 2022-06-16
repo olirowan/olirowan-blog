@@ -46,7 +46,7 @@
                             {{ entry.title }}
                         </a>
                     </h3>
-                    <p>Posted {{ moment(entry.timestamp, local=true).fromNow() }}</p>
+                    <p>{{ entry.timestamp.strftime('%d %B %Y') }}</p>
                     {% for tag in entry.tag %}
                     <span class="span_tags"><a href="{{ url_for('blog_tags', tag_name=tag.blogpost_tag) }} ">
                             {{ tag.blogpost_tag }}</a></span>

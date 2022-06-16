@@ -17,11 +17,6 @@
 
     <link rel="preload" as="image" href="{{ url_for('static',filename='images/landscape.webp') }}" />
 
-    <!-- <script>
-        FontAwesomeConfig = { searchPseudoElements: true }
-    </script>
-    <script src="https://use.fontawesome.com/releases/v5.7.0/js/all.js"></script> -->
-
     {% block styles %}
     <!-- Bootstrap CSS -->
     {{ bootstrap.load_css() }}
@@ -103,7 +98,6 @@
     {% block scripts %}
     <!-- Optional JavaScript -->
     {{ bootstrap.load_js() }}
-    {{ moment.include_moment() }}
     <!-- Project Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/static/js/project.js"></script>
