@@ -460,7 +460,6 @@ strong {
 
 .nav-item a {
     color: #fbe6cb !important;
-
 }
 
 .active {
@@ -493,6 +492,14 @@ p a, p a:visited {
 }
 
 
+/* resources
+================================================== */
+.resources-text-row li {
+    margin-top: 1rem;
+    list-style: none
+}
+
+
 /* code
 ================================================== */
 .codehilite {
@@ -510,8 +517,6 @@ p a, p a:visited {
 
 /* login
 ================================================== */
-
-
 .default-text p {
     color: #2d2010;
 }

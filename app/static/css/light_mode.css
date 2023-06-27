@@ -233,6 +233,10 @@ strong {
     float: left;
 }
 
+.banner-text {
+    margin-top: 1.5rem;
+}
+
 
 /* nav
 ================================================== */
@@ -342,9 +346,9 @@ strong {
 
 /* container
 ================================================== */
-.container a {
+/* .container a {
     color: #fbe6cb;
-}
+} */
 
 #app-content {
     height: 100%;
@@ -367,7 +371,6 @@ strong {
     width: 100%;
     background-size: cover;
     background-image: url(../images/landscape.jpg);
-    /* background-image: url(../images/dark_landscape.jpg); */
     background-repeat: no-repeat;
 
 }
@@ -383,8 +386,6 @@ strong {
 /* author
 ================================================== */
 .authorimage {
-
-    /* background: #4e8de5 url(../images/rausch.png) repeat; */
     margin-top: 0;
     border-bottom: 2px solid #4e8de5;
     border-top: 2px solid #4e8de5;
@@ -394,7 +395,6 @@ strong {
 }
 
 .authorblock {
-
     background: #4e8de5 url(../images/rausch.png) repeat;
     margin-top: 0;
     border-bottom: 2px solid #4e8de5;
@@ -457,6 +457,10 @@ strong {
     margin-top: -15px;
 }
 
+.nav-item a {
+    color: #fbe6cb !important;
+}
+
 .active {
     text-underline-offset: .5rem;
     text-decoration-line: underline;
@@ -487,6 +491,14 @@ p a, p a:visited {
 }
 
 
+/* resources
+================================================== */
+.resources-text-row li {
+    margin-top: 1rem;
+    list-style: none
+}
+
+
 /* code
 ================================================== */
 .codehilite {
@@ -504,10 +516,6 @@ p a, p a:visited {
 
 /* login
 ================================================== */
-a.default-text a, a:visited {
-    color: #4e8de5;
-}
-
 .default-text p {
     color: #2d2010;
 }
@@ -554,6 +562,11 @@ a.default-text a, a:visited {
 
 .card.signin-card > .row {
     margin-left: 20%;
+}
+
+.card {
+    background-color: #4e8de5;
+    border: 1px solid rgba(255, 255, 255, 0.13);
 }
 
 

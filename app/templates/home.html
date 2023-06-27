@@ -106,41 +106,43 @@
 
         <hr class="separator-breakout-blue my-5">
 
-        <h2 class="text-center">Shoutouts, Resources, Interests - </h2>
+        <h2 class="text-center">Shoutouts / Resources / Interests - </h2>
 
-        <div class="row">
-            <div class="col-md-10 offset-1">
-                <div class="row resources-text-row justify-content-evenly">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row resources-text-row text-center justify-content-evenly">
 
                     <hr class="separator mt-4">
 
-                    <div class="col-md-4 my-2">
+                    <div class="col-md-4 col-12 my-4">
                         <p>
                             Images & Icons -
                         </p>
                         <ul>
-                            <li><a target="_blank" href="https://konpa.github.io/devicon/">Devicon</a></li>
                             <li><a target="_blank" href="https://www.freepik.com/">Freepik</a></li>
-                            <li><a target="_blank" href="https://unsplash.com/">Unsplash</a> - banner by <a href="https://unsplash.com/@tim_denn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim  Dennert</a>
-                            </li>
+                            <li><a target="_blank" href="https://konpa.github.io/devicon/">Devicon</a></li>
                             <li><a target="_blank" href="https://fontawesome.com/">Font Awesome</a></li>
+                            <li><a target="_blank" href="https://unsplash.com/">Unsplash</a> - <a href="https://unsplash.com/@tim_denn?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tim  Dennert</a>
+                            </li>
+                            
                         </ul>
                     </div>
 
-                    <div class="col-md-4 my-2">
+                    <div class="col-md-4 col-12 my-4">
                         <p>
-                            Learning Sources -
+                            Reference -
                         </p>
                         <ul>
                             <li><a target="_blank" href="https://blog.miguelgrinberg.com/">Miguel Grinberg's Flask
                                     Mega-Tutorial</a></li>
                             <li><a target="_blank" href="https://charlesleifer.com/">Charles Leifer's Blog</a></li>
-                            <li><a target="_blank" href="https://prettyprinted.com/">Pretty Printed</a></li>
                             <li><a target="_blank" href="https://coreyms.com/">Corey Schafer</a></li>
+                            <li><a target="_blank" href="https://prettyprinted.com/">Pretty Printed</a></li>
+                            
                         </ul>
                     </div>
 
-                    <div class="col-md-4 my-2">
+                    <div class="col-md-4 col-12 my-4">
                         <p>
                             Additional Inspiration -
                         </p>
@@ -157,25 +159,55 @@
         </div>
 
         <div class="row justify-content-evenly">
-            <div class="col-md-7 justify-content-centre">
+            <div class="col-md-7 justify-content-center">
 
 
+                {% if dark_mode %}
 
                 <i class="dev-logo devicon-amazonwebservices-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-ansible-plain-wordmark"></i>
                 <i class="dev-logo devicon-azure-plain-wordmark colored"></i>
-                <i class="dev-logo devicon-bash-plain colored"></i>
+                <i class="dev-logo devicon-bash-plain"></i>
                 <i class="dev-logo devicon-bootstrap-plain-wordmark colored"></i>
                 <i class="dev-logo devicon-debian-plain colored"></i>
-                <i class="dev-logo devicon-django-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-django-plain-wordmark"></i>
                 <i class="dev-logo devicon-docker-plain colored"></i>
-                <i class="dev-logo devicon-flask-original-wordmark colored"></i>
-                <i class="dev-logo devicon-gitlab-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-flask-original-wordmark"></i>
+                <i class="dev-logo devicon-git-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-grafana-original-wordmark colored"></i>
                 <i class="dev-logo devicon-kubernetes-plain-wordmark colored"></i>
-                <i class="dev-logo devicon-linux-plain colored"></i>
+                <i class="dev-logo devicon-linux-plain"></i>
                 <i class="dev-logo devicon-mysql-plain-wordmark colored"></i>
                 <i class="dev-logo devicon-nginx-original-wordmark colored"></i>
                 <i class="dev-logo devicon-python-plain-wordmark colored"></i>
                 <i class="dev-logo devicon-raspberrypi-line colored"></i>
+                <i class="dev-logo devicon-vim-plain"></i>
+
+                {% else %}
+                
+                <i class="dev-logo devicon-amazonwebservices-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-ansible-plain-wordmark"></i>
+                <i class="dev-logo devicon-azure-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-bash-plain"></i>
+                <i class="dev-logo devicon-bootstrap-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-debian-plain colored"></i>
+                <i class="dev-logo devicon-django-plain-wordmark"></i>
+                <i class="dev-logo devicon-docker-plain colored"></i>
+                <i class="dev-logo devicon-flask-original-wordmark"></i>
+                <i class="dev-logo devicon-git-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-grafana-original-wordmark colored"></i>
+                <i class="dev-logo devicon-kubernetes-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-linux-plain"></i>
+                <i class="dev-logo devicon-mysql-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-nginx-original-wordmark colored"></i>
+                <i class="dev-logo devicon-python-plain-wordmark colored"></i>
+                <i class="dev-logo devicon-raspberrypi-line colored"></i>
+                <i class="dev-logo devicon-vim-plain"></i>
+                
+                {% endif %}
+
+
+
 
 
             </div>
