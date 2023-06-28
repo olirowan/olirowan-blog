@@ -32,6 +32,18 @@
                         <a href="{{ url_for('snippets') }}">snippets</a>
                     </li>
 
+                    <li class="nav-item mx-2 nav-link">
+                        <a href="{{ url_for('toggle_theme', current_page=request.path) }}">
+                            <span>
+                                {% if session['theme'] == "dark" %}
+                                    <i class="fa-solid fa-sun"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-moon"></i>
+                                {% endif %}
+                            </span>
+                        </a>
+                    </li>
+
                 </ul>
 
             </div>

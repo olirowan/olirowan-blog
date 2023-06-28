@@ -187,6 +187,11 @@ strong {
     margin-bottom: 10px;
 }
 
+.blog-post-text li {
+    margin-top: 1rem;
+    font-size: 17px;
+}
+
 
 /* header
 ================================================== */
@@ -344,6 +349,9 @@ strong {
     background-color: transparent;
 }
 
+.admin-spacing {
+    padding-top: 0.75rem !important;
+}
 
 /* container
 ================================================== */
@@ -566,7 +574,7 @@ p a, p a:visited {
 }
 
 .card {
-    background-color: #1c1b1e;
+    background-color: #1f222b;
     border: 1px solid rgba(255, 255, 255, 0.13);
 }
 

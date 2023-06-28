@@ -3,7 +3,11 @@
 
 <head>
     {% block head %}
-    <style> html { background-color: black; } </style>
+    {% if session['theme'] == "dark" %}
+        <style> html { background-color: black; } </style>
+    {% else %}
+        <style> html { background-color: white; } </style>
+    {% endif %}
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,7 +52,13 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    {% if session['theme'] == "dark" %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dark_mode.css') }}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/light_mode.css') }}">
+    {% endif %}
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/friendly.css') }}">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Lato&display=swap' rel='stylesheet' type='text/css'>
@@ -59,7 +69,7 @@
                 <ul class="user-menu nav navbar-nav navbar-expand black-link-hover justify-content-end mx-4">
                     {% if not current_user.is_anonymous %}
                     {% if current_user.username == "olirowanxyz" %}
-                    <li class="pt-2">
+                    <li class="admin-spacing">
                         <a class="mx-2" href="{{ url_for('admin') }}">admin</a>
                     </li>
                     {% endif %}

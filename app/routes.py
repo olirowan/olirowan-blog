@@ -2,7 +2,7 @@ import re
 from app import app, db, view_counter
 
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 
 from app.forms import RegistrationForm, LoginForm
@@ -151,6 +151,20 @@ def editprofile():
         form.about_me.data = current_user.about_me
 
     return render_template('editprofile.html', form=form)
+
+
+@app.route('/toggle-theme')
+def toggle_theme():
+
+    current_theme = session.get("theme")
+
+    if current_theme == "dark":
+        session["theme"] = "light"
+
+    else:
+        session["theme"] = "dark"
+
+    return redirect(request.args.get("current_page"))
 
 
 @app.route('/blog')

@@ -186,6 +186,11 @@ strong {
     margin-bottom: 10px;
 }
 
+.blog-post-text li {
+    margin-top: 1rem;
+    font-size: 17px;
+}
+
 
 /* header
 ================================================== */
@@ -234,7 +239,7 @@ strong {
 }
 
 .banner-text {
-    margin-top: 1.5rem;
+    margin-top: 12.5rem;
 }
 
 
@@ -343,6 +348,9 @@ strong {
     background-color: transparent;
 }
 
+.admin-spacing {
+    padding-top: 0.75rem !important;
+}
 
 /* container
 ================================================== */
@@ -565,8 +573,8 @@ p a, p a:visited {
 }
 
 .card {
-    background-color: #4e8de5;
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    /* background-color: #4e8de5; */
+    border: 1px solid rgba(0,0,0,.125);
 }
 
 
