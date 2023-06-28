@@ -166,10 +166,10 @@ class BlogPost(db.Model):
     @property
     def html_content(self):
 
-        code_css_class = "friendly"
+        code_css_class = "nord-darker"
 
         hilite = CodeHiliteExtension(
-            linenums=False,
+            linenums=True,
             noclasses=True,
             pygments_style=code_css_class
         )
@@ -195,8 +195,7 @@ class BlogPost(db.Model):
         oembed_content = parse_html(
             post_sanitised_markup,
             oembed_providers,
-            urlize_all=True,
-            maxwidth=app.config['SITE_WIDTH']
+            urlize_all=True
         )
 
         post_markup = Markup(oembed_content)

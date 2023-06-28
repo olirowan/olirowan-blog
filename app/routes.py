@@ -274,9 +274,6 @@ def createpost():
 
             slug = re.sub('[^\w]+', '-', form.blog_title.data.lower())
 
-            app.logger.warn(form.blog_tags.data)
-            app.logger.warn(type(form.blog_tags.data))
-
             if '1' not in form.blog_tags.data:
 
                 form.blog_tags.data.append('1')

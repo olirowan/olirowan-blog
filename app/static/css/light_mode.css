@@ -513,12 +513,16 @@ p a, p a:visited {
     border: 1px solid #d8d8d8;
     border-radius: 5px;
     padding-bottom: 5px;
-    margin-bottom: 30px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     line-height: 135%;
+    font-size: 17px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
-.codehilite pre {
-    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+.codehilite span {
+    font-family: var(--bs-font-monospace);
 }
 
 
