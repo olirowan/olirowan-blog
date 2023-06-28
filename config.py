@@ -7,6 +7,8 @@ load_dotenv(os.path.join(basedir, '.env'))
 
 class Config(object):
 
+    SERVER_NAME = os.environ.get('SERVER_NAME') or "localhost:5000"
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or "123456"
     ENVIRONMENT_TYPE = os.environ.get('ENVIRONMENT_TYPE') or "DEBUG"
 
