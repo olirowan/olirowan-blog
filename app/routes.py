@@ -164,6 +164,8 @@ def toggle_theme():
     else:
         session["theme"] = "dark"
 
+    app.logger.warn(app.config['SESSION_COOKIE_SECURE'])
+
     return redirect(request.args.get("current_page"))
 
 
