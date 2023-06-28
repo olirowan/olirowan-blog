@@ -112,6 +112,10 @@ h6 {
     padding-top: 5px;
 }
 
+.blogpost-title a {
+    color: #4e8de5;
+}
+
 p {
     color: #d6d3d3;
     line-height: 1.5em;
