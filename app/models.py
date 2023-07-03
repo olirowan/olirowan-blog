@@ -119,7 +119,6 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-
 class BlogPostTags(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     blogpost_tag = db.Column(db.String(16), index=True, unique=True)
@@ -160,7 +159,6 @@ class BlogPost(db.Model):
     type = db.Column(db.String(20))
 
     comments = db.relationship('Comment', backref='blogpost', lazy=True)
-
 
     @classmethod
     def public(cls):

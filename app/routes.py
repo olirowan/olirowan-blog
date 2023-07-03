@@ -28,7 +28,6 @@ def check_notifications():
     return dict(notifications=notifications)
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home/')
 def home():
@@ -224,7 +223,6 @@ def blog_tags(tag_name):
 def readpost(slug):
 
     blogpost = BlogPost.public().filter_by(slug=slug).first_or_404()
-    # comments = Comment.approved().filter_by(blogpost=blogpost).order_by(Comment.timestamp.desc()).all()
 
     comments = Comment.approved_comments().filter_by(blogpost=blogpost).order_by(Comment.timestamp.desc())
 
