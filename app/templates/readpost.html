@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
 {% set active_page = "blog" %}
 
 {% block title %}Blog - olirowan{% endblock %}
@@ -59,12 +60,14 @@
                     <div class="card-body authorblock about-text-yellow">
 
 
-                        <h4 class="card-title my-3"><i class="fas fa-user-circle"></i> Oli Rowan</h4>
+                        <h4 class="card-title my-3"><i class="fas fa-user-circle mx-2"></i> Oli Rowan</h4>
 
-                        <h4 class="card-text my-3"><i class="fas fa-calendar"></i>  {{ blogpost.timestamp.strftime('%d %B %Y') }}</h4>
+                        <h4 class="card-text my-3"><i class="fas fa-calendar mx-2"></i> {{
+                            blogpost.timestamp.strftime('%d %B %Y') }}</h4>
 
-                        <h4 class="card-text my-3"><i class="fas fa-eye"></i> {{ view_count }}</h4>
+                        <h4 class="card-text my-3"><i class="fas fa-eye mx-2"></i> {{ view_count }}</h4>
 
+                        <h4 class="card-text my-3"><i class="fas fa-comment mx-2"></i> {{ comment_count }}</h4>
 
                     </div>
                 </div>
@@ -74,6 +77,112 @@
     </div>
 
     <br class="my-5">
+
+    <div class="row">
+
+        <hr class="separator mt-0">
+
+        <div class="col-md-10">
+            <div class="">
+                <div class="container post-text blog-post-text">
+
+                    {% for comment in comments %}
+
+                    <div class="card">
+
+                        <div class="row mx-2 mt-4 mb-2">
+                            <div class="col-md-12">
+                                <div class="comment-container">
+                                    <i class="comment-icon about-text-yellow fas fa-user-circle mx-2"></i>
+                                    <span class="alias-comment-text about-text-yellow px-3">{{ comment.alias }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-2 mb-4">
+                            <div class="col-md-12">
+                                <div class="comment-container">
+                                    <i class="comment-icon fas fa-calendar mx-2"></i>
+                                    <span class="date-comment-text px-3">{{ comment.timestamp.strftime('%d %B, %Y')
+                                        }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-2 mb-5">
+                            <div class="col-md-12">
+                                <div class="comment-container">
+                                    <i class="comment-icon fas fa-comment mx-2"></i>
+                                    <span class="body-comment-text px-3">{{ comment.body }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                    </div>
+
+                    <hr class="separator my-4">
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="container">
+
+                <div class="card leave-comment-card about-text-yellow">
+
+                    <h3 class="mx-5 mt-5 mb-3 about-text-yellow">Leave a comment:</h3>
+
+                    <form class="form" method="post" action="" role="form">
+
+                        {{ form.hidden_tag() }}
+
+
+                        <div class="row justify-content-evenly mb-2">
+                            <div class="col-md-10">
+                                <div class="mx-4">
+                                    {{ wtf.render_field(form.alias, rows="1", class='form-control input-lg',
+                                    placeholder='Name') }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-evenly mb-4">
+                            <div class="col-md-10">
+                                <div class="mx-4">
+                                    {{ wtf.render_field(
+                                    form.body, rows="4",
+                                    class='form-control input-lg',
+                                    type='text',
+                                    placeholder='Comment'
+                                    ) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-evenly mb-5">
+                            <div class="col-md-10">
+                                <div class="mx-4">
+                                    {{ form.submit(class="btn btn-outline-secondary") }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <br>
+
+                </div>
+
+                <hr class="separator my-5">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br class="my-5">
 
 </div>
 

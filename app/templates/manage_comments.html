@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% import 'bootstrap/form.html' as wtf %}
+{% set active_page = "admin" %}
+
+{% block title %}Admin Tags - olirowan{% endblock %}
+
+{% block app_content %}
+
+<div class="container post-text">
+
+    <div class="row justify-content-evenly">
+
+        <div class="col-md-12">
+
+            <h2 class="mt-4"><a href="{{ url_for('admin') }}">Admin</a> - Manage Comments</h2>
+
+            <hr class="separator my-4">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="my-2">Pending Comments</h4>
+
+                            <hr class="separator my-4">
+
+                            <div class="mx-3">
+
+                                {% for comment in pending_comments %}
+
+                                <h4 class="card-title my-3"><i class="fas fa-signs-post mx-2"></i> {{
+                                    comment.blogpost.slug }} </h4>
+
+                                <h4 class="card-title my-3"><i class="fas fa-calendar mx-2"></i> {{
+                                    comment.timestamp.strftime('%d %B %Y') }} </h4>
+
+                                <h4 class="card-title my-4"><i class="fas fa-user-circle mx-2"></i> {{ comment.alias }}
+                                </h4>
+
+                                <h4 class="card-title my-4"><i class="fas fa-comment mx-2"></i> {{ comment.body }} </h4>
+
+                                <br>
+
+                                <span>
+                                    <a class="btn btn-primary mx-2"
+                                        href="{{ url_for('allow_comment', id=comment.id) }}">Approve</a>
+
+                                    <a class="btn btn-danger mx-2"
+                                        href="{{ url_for('delete_comment', id=comment.id) }}">Delete</a>
+                                </span>
+
+                                <hr class="separator my-5">
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="my-2">Approved Comments</h4>
+
+                            <hr class="separator my-4">
+
+                            <div class="mx-3">
+
+                                {% for comment in approved_comments %}
+
+                                <h4 class="card-title my-3"><i class="fas fa-signs-post mx-2"></i> {{
+                                    comment.blogpost.slug }} </h4>
+
+                                <h4 class="card-title my-3"><i class="fas fa-calendar mx-2"></i> {{
+                                    comment.timestamp.strftime('%d %B %Y') }} </h4>
+
+                                <h4 class="card-title my-4"><i class="fas fa-user-circle mx-2"></i> {{ comment.alias }}
+                                </h4>
+
+                                <h4 class="card-title my-4"><i class="fas fa-comment mx-2"></i> {{ comment.body }} </h4>
+
+                                <br>
+
+                                <span>
+                                    <a class="btn btn-warning mx-2"
+                                        href="{{ url_for('revert_comment', id=comment.id) }}">Revert</a>
+                                </span>
+
+                                <hr class="separator my-5">
+
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock %}
+
+    {% endblock %}

@@ -119,7 +119,6 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-
 class BlogPostTags(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     blogpost_tag = db.Column(db.String(16), index=True, unique=True)
@@ -158,6 +157,8 @@ class BlogPost(db.Model):
     )
 
     type = db.Column(db.String(20))
+
+    comments = db.relationship('Comment', backref='blogpost', lazy=True)
 
     @classmethod
     def public(cls):
@@ -201,5 +202,26 @@ class BlogPost(db.Model):
         post_markup = Markup(oembed_content)
         return post_markup
 
+
+class Comment(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    alias = db.Column(db.String(20), nullable=False)
+    body = db.Column(db.String(100), nullable=False)
+    is_approved = db.Column(db.Integer, nullable=False, default=0)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now)
+    post_id = db.Column(db.Integer, db.ForeignKey('blog_post.id'), nullable=False)
+
+    def __repr__(self):
+        return f"Comment('{self.body}', '{self.timestamp}')"
+    
+    @classmethod
+    def approved_comments(cls):
+        return Comment.query.filter(Comment.is_approved==1)
+
+    @classmethod
+    def unapproved_comments(cls):
+        return Comment.query.filter(Comment.is_approved==0)
+    
 
 db.create_all()

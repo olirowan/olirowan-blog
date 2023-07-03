@@ -158,3 +158,9 @@ class CreateTag(FlaskForm):
     tag = TextAreaField('Add tag:', validators=[DataRequired(
         message="Please don't leave this field blank.")])
     submit = SubmitField('Add')
+
+
+class AddCommentForm(FlaskForm):
+    alias = StringField("", validators=[DataRequired()])
+    body = TextAreaField("", validators=[DataRequired()])
+    submit = SubmitField("Submit")
