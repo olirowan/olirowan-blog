@@ -20,33 +20,43 @@
 
                 <div class="col-4">
 
-                    <div class="card">
+                    <div class="card my-4">
 
                         <div class="card-body">
                             <h5 class="card-title">Create Post</h5>
                             <p class="card-text">Create a blog or a snippet.
                             </p>
-                            <a href="{{ url_for('createpost') }}" class="btn btn-outline-dark">/createpost</a>
+                            <a href="{{ url_for('createpost') }}" class="btn btn-outline-primary">/createpost</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 my-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Manage Tags</h5>
                             <p class="card-text">Add or remove the tags associated with posts.
                             </p>
-                            <a href="{{ url_for('managetags') }}" class="btn btn-outline-dark">/managetags</a>
+                            <a href="{{ url_for('managetags') }}" class="btn btn-outline-primary">/managetags</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 my-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Manage Comments</h5>
+                            <p class="card-text">Reviewing pending comments.
+                            </p>
+                            <a href="{{ url_for('manage_comments') }}" class="btn btn-outline-primary">/manage_comments</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 my-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Logout</h5>
                             <p class="card-text">Back to a regular visitor.
                             </p>
-                            <a href="{{ url_for('logout') }}" class="btn btn-outline-dark">/logout</a>
+                            <a href="{{ url_for('logout') }}" class="btn btn-outline-primary">/logout</a>
                         </div>
                     </div>
                 </div>

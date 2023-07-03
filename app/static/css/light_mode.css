@@ -195,6 +195,43 @@ strong {
     font-size: 17px;
 }
 
+.alias-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: left;
+}
+
+.date-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 14px;
+    text-align: left;
+}
+
+.body-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 18px;
+    text-align: left;
+}
+
+.comment-icon {
+    display: inline-flex;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.comment-container {
+    display: flex;
+    text-align: left;
+  }
+
+.leave-comment-form {
+    width: 100%;
+  }
+
 
 /* header
 ================================================== */
@@ -379,7 +416,7 @@ strong {
 }
 
 #home-banner-container {
-    height: 86vh;
+    height: 88vh;
     width: 100%;
     background-size: cover;
     background-image: url(../images/landscape.jpg);
@@ -394,6 +431,26 @@ strong {
 .content.right {
     float: right;
 }
+
+.leave-comment-card {
+    background: #4e8de5 url(../images/rausch.png) repeat;
+}
+
+/* Turn off background for all tablets and phones. */
+@media only screen and (max-device-width: 1366px) {
+    #home-banner-container {
+        background-size: cover;
+        /* background-repeat: no-repeat; */
+        min-height: 100%;
+    }
+    p.tagline {
+        font-size: 18px;
+        color: white;
+    }
+    .about-me h2 {
+        color: white;
+    }
+  }
 
 /* author
 ================================================== */
