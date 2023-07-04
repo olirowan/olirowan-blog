@@ -53,10 +53,10 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
-    {% if session['theme'] == "dark" %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dark_mode.css') }}">
-    {% else %}
+    {% if session['theme'] == "light" %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/light_mode.css') }}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/dark_mode.css') }}">
     {% endif %}
 
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/friendly.css') }}"> -->

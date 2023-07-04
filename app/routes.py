@@ -166,11 +166,11 @@ def toggle_theme():
 
     current_theme = session.get("theme")
 
-    if current_theme == "dark":
-        session["theme"] = "light"
+    if current_theme == "light":
+        session["theme"] = "dark"
 
     else:
-        session["theme"] = "dark"
+        session["theme"] = "light"
 
     return redirect(request.args.get("current_page"))
 
