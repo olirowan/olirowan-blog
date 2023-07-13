@@ -166,11 +166,11 @@ def toggle_theme():
 
     current_theme = session.get("theme")
 
-    if current_theme == "light":
-        session["theme"] = "dark"
+    if current_theme == "dark":
+        session["theme"] = "light"
 
     else:
-        session["theme"] = "light"
+        session["theme"] = "dark"
 
     return redirect(request.args.get("current_page"))
 
@@ -207,9 +207,9 @@ def snippets():
 def blog_tags(tag_name):
 
     blog_join = BlogPost.query.filter(
-        BlogPostTags.blogpost_tag.contains(tag_name)
-            ).join(BlogPostTags, BlogPost.tag
-        ).order_by(BlogPost.timestamp.desc()).all()
+        BlogPostTags.blogpost_tag.contains(
+            tag_name
+        )).join(BlogPostTags, BlogPost.tag).order_by(BlogPost.timestamp.desc()).all()
 
     return render_template(
         'blog_tag.html',
@@ -280,7 +280,7 @@ def admin():
             total_viewcount += count
 
             sublist = []
-            sublist.append((path,count))
+            sublist.append((path, count))
             viewcount_list.append(sublist)
 
         return render_template(
