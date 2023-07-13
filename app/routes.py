@@ -5,10 +5,10 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, session
 from flask_login import login_user, logout_user, current_user, login_required
 
-from app.forms import RegistrationForm, LoginForm
+from app.forms import RegistrationForm, LoginForm, AddCommentForm
 from app.forms import CreateBlogPost, EditProfileForm, CreateTag
 from app.forms import ResetPasswordForm, ResetPasswordRequestForm
-from app.models import User, BlogPost, BlogPostTags
+from app.models import User, BlogPost, BlogPostTags, Comment
 from app.email import send_password_reset_email
 from app.utils import validate_if_admin_user
 
@@ -18,6 +18,14 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+
+@app.context_processor
+def check_notifications():
+
+    notifications = Comment.unapproved_comments().count()
+
+    return dict(notifications=notifications)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -164,8 +172,6 @@ def toggle_theme():
     else:
         session["theme"] = "dark"
 
-    app.logger.warn(app.config['SESSION_COOKIE_SECURE'])
-
     return redirect(request.args.get("current_page"))
 
 
@@ -201,9 +207,9 @@ def snippets():
 def blog_tags(tag_name):
 
     blog_join = BlogPost.query.filter(
-        BlogPostTags.blogpost_tag.contains(tag_name)
-            ).join(BlogPostTags, BlogPost.tag
-        ).order_by(BlogPost.timestamp.desc()).all()
+        BlogPostTags.blogpost_tag.contains(
+            tag_name
+        )).join(BlogPostTags, BlogPost.tag).order_by(BlogPost.timestamp.desc()).all()
 
     return render_template(
         'blog_tag.html',
@@ -212,19 +218,43 @@ def blog_tags(tag_name):
     )
 
 
-@app.route('/<slug>/')
+@app.route('/<slug>/', methods=['GET', 'POST'])
 @view_counter.count
 def readpost(slug):
 
-    query = BlogPost.public().filter_by(slug=slug).first_or_404()
+    blogpost = BlogPost.public().filter_by(slug=slug).first_or_404()
 
-    view_count_sql = 'SELECT COUNT(id) from vc_requests where path="/' + slug + '/"'
-    view_count = db.engine.execute(view_count_sql).scalar()
+    comments = Comment.approved_comments().filter_by(blogpost=blogpost).order_by(Comment.timestamp.desc())
+
+    form = AddCommentForm()
+
+    if form.validate_on_submit():
+
+        comment = Comment(
+            alias=form.alias.data,
+            body=form.body.data,
+            is_approved=0,
+            blogpost=blogpost
+        )
+        db.session.add(comment)
+        db.session.commit()
+
+        flash("Thanks, your comment has been submitted.", "success")
+
+        return redirect(url_for("readpost", slug=slug))
+    
+    elif request.method == 'GET':
+
+        view_count_sql = 'SELECT COUNT(id) from vc_requests where path="/' + slug + '/"'
+        view_count = db.engine.execute(view_count_sql).scalar()
 
     return render_template(
         'readpost.html',
-        blogpost=query,
-        view_count=view_count
+        blogpost=blogpost,
+        comments=comments,
+        view_count=view_count,
+        comment_count=comments.count(),
+        form=form
     )
 
 
@@ -250,7 +280,7 @@ def admin():
             total_viewcount += count
 
             sublist = []
-            sublist.append((path,count))
+            sublist.append((path, count))
             viewcount_list.append(sublist)
 
         return render_template(
@@ -273,9 +303,6 @@ def createpost():
         if form.validate_on_submit():
 
             slug = re.sub('[^\w]+', '-', form.blog_title.data.lower())
-
-            app.logger.warn(form.blog_tags.data)
-            app.logger.warn(type(form.blog_tags.data))
 
             if '1' not in form.blog_tags.data:
 
@@ -352,3 +379,68 @@ def managetags():
 
     else:
         return redirect(url_for('home'))
+
+
+@app.route('/admin/manage_comments', methods=['GET', 'POST'])
+@login_required
+def manage_comments():
+
+    if validate_if_admin_user(current_user):
+
+        form = CreateTag()
+
+        pending_comments = Comment.unapproved_comments().order_by(Comment.timestamp.desc())
+        approved_comments = Comment.approved_comments().order_by(Comment.timestamp.desc())
+        if form.validate_on_submit():
+            tag = BlogPostTags(blogpost_tag=form.tag.data)
+            db.session.add(tag)
+            db.session.commit()
+            flash('Tag Added.')
+            return redirect(url_for('managetags'))
+
+        return render_template(
+            'manage_comments.html',
+            pending_comments=pending_comments,
+            approved_comments=approved_comments,
+            form=form)
+
+    else:
+        return redirect(url_for('home'))
+    
+
+@app.route('/admin/manage_comments/delete/<int:id>')
+def delete_comment(id):
+
+    comment = Comment.query.get_or_404(id)
+    db.session.delete(comment)
+    db.session.commit()
+
+    flash(f'Comment {id} deleted')
+
+    return redirect(url_for('manage_comments'))
+
+
+@app.route('/admin/manage_comments/allow/<int:id>')
+def allow_comment(id):
+
+    comment = Comment.query.get_or_404(id)
+
+    comment.is_approved = 1
+    db.session.commit()
+
+    flash(f'Comment {id} approved')
+
+    return redirect(url_for('manage_comments'))
+
+
+@app.route('/admin/manage_comments/revert/<int:id>')
+def revert_comment(id):
+
+    comment = Comment.query.get_or_404(id)
+
+    comment.is_approved = 0
+    db.session.commit()
+
+    flash(f'Comment {id} reverted')
+
+    return redirect(url_for('manage_comments'))

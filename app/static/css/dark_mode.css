@@ -112,6 +112,10 @@ h6 {
     padding-top: 5px;
 }
 
+.blogpost-title a {
+    color: #4e8de5;
+}
+
 p {
     color: #d6d3d3;
     line-height: 1.5em;
@@ -191,6 +195,43 @@ strong {
     margin-top: 1rem;
     font-size: 17px;
 }
+
+.alias-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 20px;
+    text-align: left;
+}
+
+.date-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 14px;
+    text-align: left;
+}
+
+.body-comment-text {
+    display: inline-flex;
+    vertical-align: middle;
+    font-size: 18px;
+    text-align: left;
+}
+
+.comment-icon {
+    display: inline-flex;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.comment-container {
+    display: flex;
+    text-align: left;
+  }
+
+.leave-comment-form {
+    width: 100%;
+  }
 
 
 /* header
@@ -376,7 +417,7 @@ strong {
 }
 
 #home-banner-container {
-    height: 86vh;
+    min-height: 88vh;
     width: 100%;
     background-size: cover;
     background-image: url(../images/dark_landscape.jpg);
@@ -391,6 +432,18 @@ strong {
 .content.right {
     float: right;
 }
+
+.leave-comment-card {
+    background: #1a1d24 url(../images/rausch.png) repeat;
+}
+/* Turn off background for all tablets and phones. */
+@media only screen and (max-device-width: 1366px) {
+    #home-banner-container {
+        background-size: cover;
+        /* background-repeat: no-repeat; */
+        min-height: 100%;
+    }
+  }
 
 /* author
 ================================================== */
@@ -476,7 +529,7 @@ strong {
     text-decoration-color: #e8ded1;
 }
 
-a, a:visited {
+a {
     color: #4e8de5;
     text-decoration: none;
     outline: 0;
@@ -514,12 +567,16 @@ p a, p a:visited {
     border: 1px solid #d8d8d8;
     border-radius: 5px;
     padding-bottom: 5px;
-    margin-bottom: 30px;
+    margin-top: 35px;
+    margin-bottom: 35px;
     line-height: 135%;
+    font-size: 17px;
+    overflow: auto;
+    box-sizing: border-box;
 }
 
-.codehilite pre {
-    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+.codehilite span {
+    font-family: var(--bs-font-monospace);
 }
 
 
